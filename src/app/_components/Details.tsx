@@ -10,7 +10,7 @@ export default function Details() {
       <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-20 mx-10 md:mx-30">
         <Button
           name="Tundra"
-          className="border-2 border-tundra hover:bg-tundra hover:text-black active:bg-tundra-dark"
+          className="border-2 border-tundra hover:bg-tundra hover:text-black active:bg-tundra-dark active:border-tundra-dark"
           disabled={false}
         />
         <Button
