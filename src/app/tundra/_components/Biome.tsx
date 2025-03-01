@@ -14,13 +14,15 @@ export default function Biome() {
           </p>
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 mt-10 md:mt-20'>
-          <Image
+          <div className='flex justify-center lg:justify-start'>
+            <Image
             src="/tundra_2.jpg"
             alt="Tundra"
             width={'500'}
             height={0}
             className="rounded-xl overflow-hidden"
           />
+          </div>
           <div className="flex flex-col justify-around gap-10 md:gap-20">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold">

@@ -14,13 +14,15 @@ export default function Animal() {
           </p>
         </div>
         <div className="mt-10 md:mt-20 grid grid-cols-1 xl:grid-cols-2 gap-10 md:gap-20">
-          <Image
-            src="/renas.jpg"
-            alt="Rena"
-            width={500}
-            height={0}
-            className="xl:order-2 rounded-xl overflow-hidden"
-          />
+          <div className='flex justify-center xl:order-2'>
+            <Image
+              src="/renas.jpg"
+              alt="Rena"
+              width={500}
+              height={0}
+              className=" rounded-xl overflow-hidden "
+            />
+          </div>
           <div className="flex flex-col justify-around gap-10 md:gap-20">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold">
