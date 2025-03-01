@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Biome() {
   return (
     <div className="bg-black text-white py-10 md:py-20">
@@ -11,32 +13,48 @@ export default function Biome() {
             que resistem às condições mais extremas do planeta.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 mt-10 md:mt-20">
-          <div>
-            <h3 className="text-3xl md:text-4xl font-bold">O Que é a Tundra?</h3>
-            <p className="text-xl md:text-2xl mt-5">
-              A tundra é um bioma encontrado nas regiões mais frias do planeta,
-              onde o solo permanece congelado quase o ano todo. Sua vegetação
-              rasteira e clima extremo a tornam um dos habitats mais
-              desafiadores do mundo.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-3xl md:text-4xl font-bold">Onde Encontramos?</h3>
-            <p className="text-xl md:text-2xl mt-5">
-              A tundra é encontrada em regiões próximas aos polos, como no norte
-              do Canadá, Alasca, Groenlândia, Rússia e Escandinávia. Ela também
-              ocorre em altas montanhas, como os Alpes e o Himalaia.
-            </p>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 mt-10 md:mt-20'>
+          <Image
+            src="/tundra_2.jpg"
+            alt="Tundra"
+            width={'500'}
+            height={0}
+            className="rounded-xl overflow-hidden"
+          />
+          <div className="flex flex-col justify-around gap-10 md:gap-20">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                O Que é a Tundra?
+              </h3>
+              <p className="text-xl md:text-2xl mt-5">
+                A tundra é um bioma encontrado nas regiões mais frias do
+                planeta, onde o solo permanece congelado quase o ano todo. Sua
+                vegetação rasteira e clima extremo a tornam um dos habitats mais
+                desafiadores do mundo.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Onde Encontramos?
+              </h3>
+              <p className="text-xl md:text-2xl mt-5">
+                A tundra é encontrada em regiões próximas aos polos, como no
+                norte do Canadá, Alasca, Groenlândia, Rússia e Escandinávia. Ela
+                também ocorre em altas montanhas, como os Alpes e o Himalaia.
+              </p>
+            </div>
           </div>
         </div>
         <div className="mt-10 md:mt-20">
-          <h3 className="text-3xl md:text-4xl font-bold">Principais Características:</h3>
+          <h3 className="text-3xl md:text-4xl font-bold">
+            Principais Características:
+          </h3>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-20 mt-5">
             <li className="text-xl md:text-2xl mt-5">
               <h4 className="text-2xl md:text-3xl font-bold">Clima</h4>
               <p className="mt-3">
-                Clima polar seco, pouca chuva, invernos congelantes (-50°C) e verões curtos.
+                Clima polar seco, pouca chuva, invernos congelantes (-50°C) e
+                verões curtos.
               </p>
             </li>
             <li className="text-xl md:text-2xl mt-5">
@@ -47,7 +65,9 @@ export default function Biome() {
               </p>
             </li>
             <li className="text-xl md:text-2xl mt-5">
-              <h4 className="text-2xl md:text-3xl font-bold">Solo (Permafrost)</h4>
+              <h4 className="text-2xl md:text-3xl font-bold">
+                Solo (Permafrost)
+              </h4>
               <p className="mt-3">Camada de terra permanentemente congelada.</p>
             </li>
             <li className="text-xl md:text-2xl mt-5">

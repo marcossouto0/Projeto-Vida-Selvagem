@@ -2,7 +2,7 @@ import Navbar from './Navbar'
 
 export default function Hero() {
   return (
-    <div className="bg-[url('/bg.jpg')] bg-no-repeat bg-cover bg-center bg-fixed my-0 w-100% h-screen">
+    <div className="bg-[url('/bg.jpg')] bg-no-repeat bg-cover bg-center my-0 w-100% h-screen">
       <div className="mx-10 md:mx-30">
         <Navbar />
         <div className="inline-flex flex-col gap-20">
