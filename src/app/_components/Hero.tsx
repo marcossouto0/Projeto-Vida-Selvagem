@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="inline-flex flex-col gap-20">
           <div>
             <h1 className="mt-10 md:mt-25 text-6xl md:text-6xl font-bold text-blue-950 font-mono">
-              Salvando animais a mais de 75 anos!
+              Salvando animais a mais de 20 anos!
             </h1>
             <p className="text-3xl text-blue-950 mt-2">
               Defendendo a vida selvagem, um bioma de cada vez.

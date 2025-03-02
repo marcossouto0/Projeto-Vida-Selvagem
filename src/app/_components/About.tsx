@@ -10,7 +10,7 @@ export default function About() {
             <h3 className="text-3xl">O que é o projeto?</h3>
             <p className="text-2xl">
               O Projeto Vida Selvagem é uma organização sem fins lucrativos que
-              atua na defesa dos animais desde 1945. Nossa missão é proteger e
+              atua na defesa dos animais desde 2002. Nossa missão é proteger e
               promover o bem-estar dos animais, além de conscientizar a
               população sobre a importância da preservação da fauna ao redor do
               mundo. Para isso, escolhemos um animal de cada bioma para
