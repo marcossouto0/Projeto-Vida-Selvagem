@@ -14,7 +14,7 @@ export default function Animal() {
           </p>
         </div>
         <div className="mt-10 md:mt-20 grid grid-cols-1 xl:grid-cols-2 gap-10 md:gap-20">
-          <div className='flex justify-center xl:order-2'>
+          <div className="flex justify-center xl:order-2">
             <Image
               src="/renas.jpg"
               alt="Rena"
@@ -135,6 +135,12 @@ export default function Animal() {
             Outras ameaças incluem a caça ilegal, a perda de habitat devido à
             exploração de recursos naturais e a competição com outras espécies
             introduzidas.
+          </p>
+          <p className="text-xl md:text-2xl mt-5">
+            Atualmente as renas são classificadas na Lista Vermelha de Espécies
+            Ameaçadas da IUCN como vulneráveis. De acordo com essa
+            classificação, as renas apresentam um risco elevado de entrar em
+            extinção na natureza caso nenhuma medida de proteção seja realizada.
           </p>
         </div>
       </div>

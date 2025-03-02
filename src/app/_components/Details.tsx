@@ -7,7 +7,7 @@ export default function Details() {
         <h2 className="text-4xl font-bold">Saiba Mais</h2>
         <p className="text-2xl">Escolha um bioma abaixo e saiba mais sobre:</p>
       </div>
-      <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-20 mx-10 md:mx-30">
+      <div className="mt-10 grid md:grid-cols-2 items-stretch lg:grid-cols-4 gap-20 mx-10 md:mx-30">
         <Button
           name="Tundra"
           className="border-2 border-tundra hover:bg-tundra hover:text-black active:bg-tundra-dark active:border-tundra-dark"
