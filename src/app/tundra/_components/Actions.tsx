@@ -1,7 +1,7 @@
 export default function Actions() {
   return (
     <div className="bg-sky-200">
-      <div className="mx-10 md:mx-30 py-10 md:py-20">
+      <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
         <h2 className="text-4xl md:text-5xl font-bold">Nossas Ações</h2>
 
         <h3 className="text-3xl md:text-4xl font-semibold mt-10">

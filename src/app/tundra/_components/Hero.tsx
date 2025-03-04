@@ -6,7 +6,7 @@ export default function Hero() {
       id="tundra"
       className="bg-[url('/tundra.jpg')] bg-no-repeat bg-cover bg-center my-0 w-100% h-screen"
     >
-      <div className="mx-10 md:mx-30">
+      <div className="mx-5 md:mx-15 lg:mx-30">
         <Navbar />
         <div className="inline-flex flex-col gap-20">
           <div className="flex flex-col gap-3 md:gap-15">

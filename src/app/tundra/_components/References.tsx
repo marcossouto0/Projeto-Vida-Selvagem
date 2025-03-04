@@ -1,7 +1,7 @@
 export default function References() {
   return (
     <div>
-      <div className="mx-10 md:mx-30 py-10 md:py-20">
+      <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
         <h2 className="text-4xl md:text-5xl font-bold">Referências</h2>
         <ul className="list-disc list-inside underline mt-10">
           <li>

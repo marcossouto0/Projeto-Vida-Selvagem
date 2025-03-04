@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Animal() {
   return (
     <div className="bg-[#85AEB4] text-black">
-      <div className="mx-10 md:mx-30 py-10 md:py-20">
+      <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold">
             Rena: A Viajante da Tundra
@@ -39,7 +39,7 @@ export default function Animal() {
                 Para sobreviverem em ambientes extremos, as renas possuem duas
                 camadas de pelo:
               </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mt-3">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-20 mt-3">
                 <li className="text-xl md:text-2xl">
                   <strong>Camada interna:</strong> Subpelo fino e lanoso, que
                   fica próxima à pele e retém calor.

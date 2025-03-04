@@ -13,7 +13,7 @@ export default function TeamCard({ name, role, image }: { name: string, role: st
       </div>
       <div className="flex flex-col justify-center gap-3">
         <h4 className='font-bold text-xl md:text-2xl'>{name}</h4>
-        <p className="text-sm">{role}</p>
+        <p className="text-md md:text-lg">{role}</p>
       </div>
     </div>
   )

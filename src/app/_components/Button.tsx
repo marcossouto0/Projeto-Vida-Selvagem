@@ -11,7 +11,7 @@ export default function Button({
   className: string
   disabled: boolean
 }) {
-  className = `text-xl font-bold py-5 px-10 rounded-lg flex justify-center items-center ${className}`
+  className = `text-lg md:text-xl font-bold py-5 px-10 rounded-lg flex justify-center items-center ${className}`
 
   if (disabled) {
     className = `${className} opacity-50 cursor-not-allowed`
