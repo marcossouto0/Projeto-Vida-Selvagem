@@ -6,12 +6,12 @@ export default function Animal() {
       <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Tamanduá-Bandeira: O Arquiteto do Cerrado
+            Tamanduá-Bandeira: O Arquiteto das Savanas
           </h2>
           <p className="text-xl md:text-2xl mt-5">
             Com sua aparência única e comportamento especializado, o
-            tamanduá-bandeira é um dos animais mais emblemáticos do Cerrado
-            brasileiro. Mas a perda de habitat e as queimadas ameaçam sua
+            tamanduá-bandeira é um dos animais mais emblemáticos das savanas
+            sul-americanas. Mas a perda de habitat e as queimadas ameaçam sua
             sobrevivência.
           </p>
         </div>
@@ -75,11 +75,12 @@ export default function Animal() {
             presença humana.
           </p>
           <p className="text-xl md:text-2xl mt-5">
-            Embora seja mais associado ao Cerrado, também habita outros biomas
-            como Pantanal, Amazônia e Mata Atlântica. Prefere áreas abertas como
-            campos e savanas, mas necessita de manchas florestais para descanso
-            e proteção. Cada indivíduo pode ocupar um território de 9 a 25 km²,
-            dependendo da disponibilidade de alimento.
+            Embora seja mais associado às savanas sul-americanas, como o Cerrado
+            brasileiro e os Llanos venezuelanos, também habita outros biomas
+            como o Pantanal, partes da Amazônia e Mata Atlântica. Prefere áreas
+            abertas como campos e savanas, mas necessita de manchas florestais
+            para descanso e proteção. Cada indivíduo pode ocupar um território
+            de 9 a 25 km², dependendo da disponibilidade de alimento.
           </p>
           <p className="text-xl md:text-2xl mt-5">
             Sua dieta é altamente especializada, consistindo quase
@@ -108,10 +109,10 @@ export default function Animal() {
               <h4 className="text-2xl md:text-3xl font-bold">Cultural:</h4>
               <p className="text-xl md:text-2xl">
                 Figura em lendas e mitos de diversos povos indígenas
-                brasileiros, além de ser representado em artesanato, arte
+                sul-americanos, além de ser representado em artesanato, arte
                 popular e até mesmo na nota de 20 reais (série 1994). É um
-                símbolo da fauna brasileira e um embaixador para a conservação
-                do Cerrado.
+                símbolo da fauna neotropical e um embaixador para a conservação
+                das savanas.
               </p>
             </div>
             <div>
@@ -134,8 +135,8 @@ export default function Animal() {
             O tamanduá-bandeira enfrenta múltiplas ameaças à sua sobrevivência.
             A perda e fragmentação de habitat devido à expansão agrícola e
             urbana é a principal, reduzindo suas áreas de forrageamento e
-            isolando populações. No Cerrado, já perdeu mais de 50% de seu
-            habitat original.
+            isolando populações. Nas savanas sul-americanas, já perdeu mais de
+            50% de seu habitat original.
           </p>
           <p className="text-xl md:text-2xl mt-5">
             Queimadas, especialmente as de grande intensidade, representam uma

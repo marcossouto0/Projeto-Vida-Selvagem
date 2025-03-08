@@ -5,8 +5,8 @@ export default function References() {
         <h2 className="text-4xl md:text-5xl font-bold">Referências</h2>
         <ul className="list-disc list-inside underline mt-10">
           <li>
-            <a href="https://www.icmbio.gov.br/portal/faunabrasileira/plano-de-acao-nacional-lista/2839-plano-de-acao-nacional-para-conservacao-do-tamandua-bandeira">
-              https://www.icmbio.gov.br/portal/faunabrasileira/plano-de-acao-nacional-lista/2839-plano-de-acao-nacional-para-conservacao-do-tamandua-bandeira
+            <a href="https://www.worldwildlife.org/biomes/tropical-and-subtropical-grasslands-savannas-and-shrublands">
+              https://www.worldwildlife.org/biomes/tropical-and-subtropical-grasslands-savannas-and-shrublands
             </a>
           </li>
           <li>
@@ -15,18 +15,23 @@ export default function References() {
             </a>
           </li>
           <li>
-            <a href="https://www.mma.gov.br/biomas/cerrado">
-              https://www.mma.gov.br/biomas/cerrado
+            <a href="https://www.nationalgeographic.org/encyclopedia/savanna-biome/">
+              https://www.nationalgeographic.org/encyclopedia/savanna-biome/
             </a>
           </li>
           <li>
-            <a href="https://www.embrapa.br/cerrados">
-              https://www.embrapa.br/cerrados
+            <a href="https://www.britannica.com/science/savanna">
+              https://www.britannica.com/science/savanna
             </a>
           </li>
           <li>
-            <a href="https://www.wwf.org.br/natureza_brasileira/areas_prioritarias/cerrado/">
-              https://www.wwf.org.br/natureza_brasileira/areas_prioritarias/cerrado/
+            <a href="https://www.nature.com/scitable/knowledge/library/the-ecology-of-tropical-savannas-96160088/">
+              https://www.nature.com/scitable/knowledge/library/the-ecology-of-tropical-savannas-96160088/
+            </a>
+          </li>
+          <li>
+            <a href="https://www.icmbio.gov.br/portal/faunabrasileira/plano-de-acao-nacional-lista/2839-plano-de-acao-nacional-para-conservacao-do-tamandua-bandeira">
+              https://www.icmbio.gov.br/portal/faunabrasileira/plano-de-acao-nacional-lista/2839-plano-de-acao-nacional-para-conservacao-do-tamandua-bandeira
             </a>
           </li>
         </ul>

@@ -6,19 +6,19 @@ export default function Biome() {
       <div className="mx-5 md:mx-15 lg:mx-30">
         <div>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Cerrado: A Savana Brasileira
+            Savana: O Bioma das Planícies Tropicais
           </h2>
           <p className="text-xl md:text-2xl mt-5">
-            Diverso, resiliente e vital. O Cerrado é o segundo maior bioma da
-            América do Sul, um hotspot de biodiversidade e berço das principais
-            bacias hidrográficas brasileiras.
+            Diversa, resiliente e vital. A savana é um bioma caracterizado por
+            extensas áreas de gramíneas com árvores esparsas, encontrado em
+            regiões tropicais e subtropicais ao redor do mundo.
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 mt-10 md:mt-20">
           <div className="flex justify-center lg:justify-start">
             <Image
               src="/savanna_2.jpg"
-              alt="Cerrado"
+              alt="Savana"
               width={'500'}
               height={0}
               className="rounded-xl overflow-hidden"
@@ -27,14 +27,14 @@ export default function Biome() {
           <div className="flex flex-col justify-around gap-10 md:gap-20">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold">
-                O Que é o Cerrado?
+                O Que é a Savana?
               </h3>
               <p className="text-xl md:text-2xl mt-5">
-                O Cerrado é um bioma caracterizado por uma formação tipo savana,
-                com árvores baixas, tortuosas, de casca grossa, dispersas em
-                meio a arbustos e gramíneas. Ocupa cerca de 22% do território
-                brasileiro, com clima tropical sazonal marcado por verões
-                chuvosos e invernos secos.
+                A savana é um bioma caracterizado por uma cobertura contínua de
+                gramíneas, com árvores e arbustos dispersos que não formam um
+                dossel fechado. É definida por estações secas e chuvosas bem
+                marcadas, com precipitação anual entre 500 e 1.500 mm,
+                concentrada principalmente na estação chuvosa.
               </p>
             </div>
             <div>
@@ -42,11 +42,12 @@ export default function Biome() {
                 Onde Encontramos?
               </h3>
               <p className="text-xl md:text-2xl mt-5">
-                O Cerrado está localizado principalmente no Planalto Central do
-                Brasil, abrangendo os estados de Goiás, Tocantins, Mato Grosso,
-                Mato Grosso do Sul, Minas Gerais, Bahia, Maranhão, Piauí,
-                Rondônia, Paraná, São Paulo e Distrito Federal, além de partes
-                do Paraguai e Bolívia.
+                As savanas ocorrem em todos os continentes, exceto na Antártida.
+                As mais extensas estão na África (onde cobrem quase metade do
+                continente), mas também são encontradas na América do Sul (como
+                o Cerrado brasileiro), Austrália (Outback), Índia e Sudeste
+                Asiático. Geralmente se desenvolvem em regiões com clima
+                tropical sazonal.
               </p>
             </div>
           </div>
@@ -59,32 +60,33 @@ export default function Biome() {
             <li className="text-xl md:text-2xl">
               <h4 className="text-2xl md:text-3xl font-bold">Clima</h4>
               <p className="mt-3">
-                Tropical sazonal, com estação chuvosa (outubro a abril) e seca
-                (maio a setembro), temperaturas médias entre 22°C e 27°C.
+                Tropical sazonal, com estação chuvosa (verão) e seca (inverno)
+                bem definidas. Temperaturas médias entre 20°C e 30°C ao longo do
+                ano.
               </p>
             </li>
             <li className="text-xl md:text-2xl">
               <h4 className="text-2xl md:text-3xl font-bold">Vegetação</h4>
               <p className="mt-3">
-                Mosaico de formações que vão do campo limpo ao cerradão, com
-                adaptações ao fogo e à seca, como raízes profundas e cascas
-                grossas.
+                Dominada por gramíneas, com árvores esparsas e adaptadas ao fogo
+                e à seca, frequentemente com troncos tortuosos, cascas grossas e
+                raízes profundas.
               </p>
             </li>
             <li className="text-xl md:text-2xl">
               <h4 className="text-2xl md:text-3xl font-bold">Solo</h4>
               <p className="mt-3">
-                Solos antigos, profundos, ácidos e pobres em nutrientes, com
-                alto teor de alumínio e ferro, o que lhes confere coloração
-                avermelhada.
+                Geralmente antigos, profundos e pobres em nutrientes, com alto
+                teor de ferro e alumínio, resultando em coloração avermelhada em
+                muitas savanas.
               </p>
             </li>
             <li className="text-xl md:text-2xl">
               <h4 className="text-2xl md:text-3xl font-bold">Biodiversidade</h4>
               <p className="mt-3">
-                Mais de 12.000 espécies de plantas (35% endêmicas), 850 espécies
-                de aves e 300 de mamíferos, incluindo espécies emblemáticas como
-                o lobo-guará e o tamanduá-bandeira.
+                Rica em espécies adaptadas às condições sazonais, incluindo
+                grandes herbívoros, predadores, aves, répteis e uma diversidade
+                notável de insetos e plantas.
               </p>
             </li>
           </ul>
@@ -92,28 +94,28 @@ export default function Biome() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 mt-10 md:mt-20">
           <div>
             <h3 className="text-3xl md:text-4xl font-bold">
-              Por que o Cerrado é tão importante?
+              Por que as savanas são tão importantes?
             </h3>
             <p className="text-xl md:text-2xl mt-5">
-              O Cerrado é conhecido como o "berço das águas" do Brasil, pois
-              abriga as nascentes das três maiores bacias hidrográficas da
-              América do Sul (Amazônica, São Francisco e Prata). Além disso, é
-              um dos hotspots mundiais de biodiversidade e um importante
-              sumidouro de carbono, armazenando-o principalmente nas raízes
-              profundas de sua vegetação.
+              As savanas são essenciais para a biodiversidade global, abrigando
+              algumas das mais impressionantes concentrações de vida selvagem do
+              planeta. Funcionam como importantes sumidouros de carbono,
+              armazenando-o principalmente nas raízes profundas das gramíneas e
+              no solo. Além disso, sustentam milhões de pessoas através da
+              agricultura, pecuária e outros recursos naturais.
             </p>
           </div>
           <div>
             <h3 className="text-3xl md:text-4xl font-bold">
-              Ameaças ao Cerrado
+              Ameaças às Savanas
             </h3>
             <p className="text-xl md:text-2xl mt-5">
-              O Cerrado é um dos biomas mais ameaçados do Brasil, tendo perdido
-              mais de 50% de sua cobertura original. A expansão agrícola,
-              especialmente para cultivo de soja e criação de gado, é a
-              principal causa de desmatamento. Queimadas descontroladas,
-              mineração, urbanização e espécies invasoras também representam
-              sérias ameaças à sua integridade.
+              As savanas enfrentam múltiplas ameaças: conversão para agricultura
+              em larga escala, especialmente monoculturas; urbanização e
+              desenvolvimento de infraestrutura; alteração dos regimes naturais
+              de fogo; espécies invasoras; e mudanças climáticas que podem
+              alterar os padrões de precipitação. Em muitas regiões, mais de 50%
+              da cobertura original de savanas já foi perdida.
             </p>
           </div>
         </div>
