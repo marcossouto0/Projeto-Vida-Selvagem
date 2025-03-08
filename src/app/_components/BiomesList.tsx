@@ -80,12 +80,12 @@ export default function BiomesList() {
   ]
 
   return (
-    <div className="py-16 bg-gray-100">
+    <div className="py-16 bg-blue-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">
           Explore os Biomas
         </h2>
-        <p className="text-xl text-center mb-12 max-w-4xl mx-auto">
+        <p className="text-xl text-center mb-12 max-w-4xl mx-auto text-blue-100">
           Todos os biomas estão disponíveis para teste neste branch. Clique em
           um bioma para explorar suas características, fauna representativa e
           ações de conservação.
