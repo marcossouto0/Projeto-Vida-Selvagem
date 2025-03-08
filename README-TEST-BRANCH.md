@@ -23,13 +23,13 @@ Você pode acessar os seguintes biomas:
 
 1. Clone este branch:
 
-   ```
+   ```cmd
    git checkout feature/all-biomes-available
    ```
 
 2. Inicie o servidor de desenvolvimento:
 
-   ```
+   ```cmd
    npm run dev
    # ou
    yarn dev
@@ -48,7 +48,8 @@ Você pode acessar os seguintes biomas:
 - Este branch é apenas para testes e não deve ser mesclado diretamente ao branch principal.
 - Os componentes dos biomas continuam nos diretórios originais com underscore (`_bioma/_components/`), apenas foram criadas páginas que importam esses componentes.
 - Quando terminar os testes, volte ao branch principal:
-  ```
+
+  ```cmd
   git checkout main
   ```
 
@@ -56,7 +57,7 @@ Você pode acessar os seguintes biomas:
 
 Cada bioma segue esta estrutura:
 
-```
+```tree
 src/app/
 ├── bioma/
 │   └── page.tsx (importa componentes de src/app/_bioma/_components/)
