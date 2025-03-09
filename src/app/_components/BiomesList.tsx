@@ -17,7 +17,6 @@ interface BiomeInfo {
 }
 
 export default function BiomesList() {
-  const [hoveredBiome, setHoveredBiome] = useState<string | null>(null)
   const [visibleBiomes, setVisibleBiomes] = useState<string[]>([])
   const biomesRef = useRef<HTMLDivElement>(null)
 
@@ -157,26 +156,80 @@ export default function BiomesList() {
           {biomes.map((biome, index) => (
             <div
               key={biome.path}
-              className="group focus:outline-none focus:ring-4 focus:ring-blue-400 rounded-xl biome-card"
+              className="group focus:outline-none rounded-xl biome-card"
               id={biome.path.replace('/', '')}
-              onMouseEnter={() => setHoveredBiome(biome.path)}
-              onMouseLeave={() => setHoveredBiome(null)}
             >
-              <div
-                className={`bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 
-                transform ${
-                  visibleBiomes.includes(biome.path.replace('/', ''))
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-16'
-                }
-                ${
-                  biome.available
-                    ? 'hover:scale-105 hover:shadow-2xl'
-                    : 'hover:shadow-md cursor-not-allowed'
-                } h-full flex flex-col relative`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                {!biome.available && (
+              {biome.available ? (
+                <Link
+                  href={biome.path}
+                  className="block h-full"
+                  aria-label={`Explorar o bioma ${biome.name}`}
+                >
+                  <div
+                    className={`bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 
+                    transform ${
+                      visibleBiomes.includes(biome.path.replace('/', ''))
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-16'
+                    }
+                    hover:scale-105 hover:shadow-2xl h-full flex flex-col relative`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <div className="relative h-64">
+                      <Image
+                        src={biome.image}
+                        alt={`Paisagem do bioma ${biome.name}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        className="object-cover z-0 transition-transform duration-700 group-hover:scale-110"
+                        priority={index < 4}
+                      />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-t ${biome.color} opacity-60 group-hover:opacity-70 transition-opacity duration-300`}
+                      ></div>
+                      <div className="absolute inset-0 flex items-end justify-between p-6">
+                        <h3 className="text-white text-2xl font-bold drop-shadow-md flex items-center">
+                          <span className="text-3xl mr-2">{biome.icon}</span>
+                          {biome.name}
+                        </h3>
+                        <div className="bg-white/20 p-2 rounded-full backdrop-blur-sm">
+                          <FaArrowRight className="text-white transform group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col z-10 bg-gradient-to-br from-white to-gray-50">
+                      <div className="flex items-start mb-4">
+                        <FaLeaf className="text-green-500 group-hover:scale-110 mt-1 mr-2 flex-shrink-0 transition-transform duration-300" />
+                        <p className="text-gray-700">{biome.description}</p>
+                      </div>
+                      <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
+                        <div className="bg-amber-100 p-2 rounded-full mr-3">
+                          <FaPaw className="text-amber-600 group-hover:rotate-12 transition-transform duration-300" />
+                        </div>
+                        <p className="text-gray-900 font-medium">
+                          {biome.animal}
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      className={`bg-gradient-to-r ${biome.color} text-white p-4 flex justify-center items-center transition-all duration-300 w-full`}
+                    >
+                      <span className="mr-2 font-semibold">Explorar bioma</span>
+                      <FaArrowRight className="animate-pulse" />
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div
+                  className={`bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 
+                  transform ${
+                    visibleBiomes.includes(biome.path.replace('/', ''))
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-16'
+                  }
+                  hover:shadow-md cursor-not-allowed h-full flex flex-col relative`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
                   <div className="absolute inset-0 bg-gray-900/50 z-30 flex flex-col items-center justify-center">
                     <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-center">
                       <p className="text-gray-800 font-semibold">
@@ -187,117 +240,48 @@ export default function BiomesList() {
                       </p>
                     </div>
                   </div>
-                )}
-                <div className="relative h-64">
-                  <Image
-                    src={biome.image}
-                    alt={`Paisagem do bioma ${biome.name}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    className={`object-cover z-0 transition-transform duration-700 ${
-                      biome.available
-                        ? 'group-hover:scale-110'
-                        : 'filter grayscale-[30%]'
-                    }`}
-                    priority={index < 4}
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t ${
-                      biome.color
-                    } ${
-                      biome.available
-                        ? 'opacity-60 group-hover:opacity-70'
-                        : 'opacity-40'
-                    } transition-opacity duration-300`}
-                  ></div>
-                  <div className="absolute inset-0 flex items-end justify-between p-6">
-                    <h3 className="text-white text-2xl font-bold drop-shadow-md flex items-center">
-                      <span className="text-3xl mr-2">{biome.icon}</span>
-                      {biome.name}
-                    </h3>
-                    <div
-                      className={`${
-                        biome.available ? 'bg-white/20' : 'bg-gray-400/30'
-                      } p-2 rounded-full backdrop-blur-sm`}
-                    >
-                      <FaArrowRight
-                        className={`${
-                          biome.available
-                            ? 'text-white transform group-hover:translate-x-1'
-                            : 'text-gray-300'
-                        } transition-transform duration-300`}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className={`p-6 flex-grow flex flex-col z-10 bg-gradient-to-br from-white to-gray-50 ${
-                    !biome.available && 'opacity-75'
-                  }`}
-                >
-                  <div className="flex items-start mb-4">
-                    <FaLeaf
-                      className={`${
-                        biome.available
-                          ? 'text-green-500 group-hover:scale-110'
-                          : 'text-green-300'
-                      } mt-1 mr-2 flex-shrink-0 transition-transform duration-300`}
+                  <div className="relative h-64">
+                    <Image
+                      src={biome.image}
+                      alt={`Paisagem do bioma ${biome.name}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      className="object-cover z-0 filter grayscale-[30%]"
+                      priority={index < 4}
                     />
-                    <p className="text-gray-700">{biome.description}</p>
-                  </div>
-                  <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
                     <div
-                      className={`${
-                        biome.available ? 'bg-amber-100' : 'bg-gray-100'
-                      } p-2 rounded-full mr-3`}
-                    >
-                      <FaPaw
-                        className={`${
-                          biome.available
-                            ? 'text-amber-600 group-hover:rotate-12'
-                            : 'text-gray-400'
-                        } transition-transform duration-300`}
-                      />
+                      className={`absolute inset-0 bg-gradient-to-t ${biome.color} opacity-40 transition-opacity duration-300`}
+                    ></div>
+                    <div className="absolute inset-0 flex items-end justify-between p-6">
+                      <h3 className="text-white text-2xl font-bold drop-shadow-md flex items-center">
+                        <span className="text-3xl mr-2">{biome.icon}</span>
+                        {biome.name}
+                      </h3>
+                      <div className="bg-gray-400/30 p-2 rounded-full backdrop-blur-sm">
+                        <FaArrowRight className="text-gray-300 transition-transform duration-300" />
+                      </div>
                     </div>
-                    <p
-                      className={`${
-                        biome.available ? 'text-gray-900' : 'text-gray-500'
-                      } font-medium`}
-                    >
-                      {biome.animal}
-                    </p>
                   </div>
-                </div>
-                {biome.available ? (
-                  <Link
-                    href={biome.path}
-                    className={`bg-gradient-to-r ${
-                      biome.color
-                    } text-white p-4 flex justify-center items-center transition-all duration-300 
-                    ${
-                      hoveredBiome === biome.path
-                        ? 'opacity-100 max-h-14'
-                        : 'opacity-0 max-h-0 overflow-hidden'
-                    }`}
-                    aria-label={`Explorar o bioma ${biome.name}`}
-                  >
-                    <span className="mr-2 font-semibold">Explorar bioma</span>
-                    <FaArrowRight className="animate-pulse" />
-                  </Link>
-                ) : (
-                  <div
-                    className={`bg-gray-400 text-white p-4 flex justify-center items-center transition-all duration-300 cursor-not-allowed
-                    ${
-                      hoveredBiome === biome.path
-                        ? 'opacity-100 max-h-14'
-                        : 'opacity-0 max-h-0 overflow-hidden'
-                    }`}
-                  >
+                  <div className="p-6 flex-grow flex flex-col z-10 bg-gradient-to-br from-white to-gray-50 opacity-75">
+                    <div className="flex items-start mb-4">
+                      <FaLeaf className="text-green-300 mt-1 mr-2 flex-shrink-0 transition-transform duration-300" />
+                      <p className="text-gray-700">{biome.description}</p>
+                    </div>
+                    <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
+                      <div className="bg-gray-100 p-2 rounded-full mr-3">
+                        <FaPaw className="text-gray-400 transition-transform duration-300" />
+                      </div>
+                      <p className="text-gray-500 font-medium">
+                        {biome.animal}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="bg-gray-400 text-white p-4 flex justify-center items-center transition-all duration-300 cursor-not-allowed">
                     <span className="mr-2 font-semibold">Indisponível</span>
                     <FaArrowRight className="opacity-50" />
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
