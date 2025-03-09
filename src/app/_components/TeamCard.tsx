@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa'
 
 interface TeamCardProps {
@@ -12,63 +12,88 @@ interface TeamCardProps {
 
 export default function TeamCard({ name, role, image }: TeamCardProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn')
+            entry.target.classList.remove('opacity-0')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (cardRef.current) observer.observe(cardRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   return (
     <div
-      className="bg-blue-800/20 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:bg-blue-800/30 group"
+      ref={cardRef}
+      className="relative bg-blue-800/20 rounded-xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:bg-blue-800/30 group transform hover:-translate-y-2 opacity-0 translate-y-8"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="p-6 flex flex-col items-center">
-        <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-blue-400 shadow-lg transition-transform duration-300 group-hover:scale-105">
+      <div className="p-8 flex flex-col items-center">
+        <div className="relative w-36 h-36 mb-6 rounded-full overflow-hidden border-4 border-blue-400/80 shadow-xl transition-all duration-500 group-hover:border-blue-300 group-hover:scale-110 group-hover:shadow-blue-400/30">
           <Image
             src={image}
             alt={`Foto de ${name}`}
             fill
-            className="object-cover"
-            sizes="128px"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="144px"
           />
         </div>
         <div className="text-center">
-          <h4 className="font-bold text-xl md:text-2xl text-white mb-2">
+          <h4 className="font-bold text-2xl md:text-3xl text-white mb-3 transition-colors duration-300 group-hover:text-blue-200">
             {name}
           </h4>
-          <p className="text-blue-300 text-md md:text-lg mb-4">{role}</p>
+          <p className="text-blue-300 text-lg md:text-xl mb-6 transition-colors duration-300 group-hover:text-blue-200">
+            {role}
+          </p>
 
-          <div className="flex justify-center space-x-4 mt-2">
+          <div className="flex justify-center space-x-6 mt-2">
             <a
               href="#"
-              className="text-blue-300 hover:text-white transition-colors duration-300"
+              className="text-blue-300 hover:text-white transition-all duration-300 hover:scale-110 transform"
               aria-label={`LinkedIn de ${name}`}
             >
-              <FaLinkedin size={20} />
+              <FaLinkedin size={24} />
             </a>
             <a
               href="#"
-              className="text-blue-300 hover:text-white transition-colors duration-300"
+              className="text-blue-300 hover:text-white transition-all duration-300 hover:scale-110 transform"
               aria-label={`Twitter de ${name}`}
             >
-              <FaTwitter size={20} />
+              <FaTwitter size={24} />
             </a>
             <a
               href="#"
-              className="text-blue-300 hover:text-white transition-colors duration-300"
+              className="text-blue-300 hover:text-white transition-all duration-300 hover:scale-110 transform"
               aria-label={`Email de ${name}`}
             >
-              <FaEnvelope size={20} />
+              <FaEnvelope size={24} />
             </a>
           </div>
         </div>
       </div>
 
       <div
-        className={`bg-blue-600 text-white p-3 text-center transition-all duration-300 ${
+        className={`absolute flex justify-center items-center bottom-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-blue-500 text-white py-4 text-lg font-medium transition-all duration-500 cursor-pointer hover:from-blue-500 hover:to-blue-400 ${
           isHovered
-            ? 'max-h-12 opacity-100'
-            : 'max-h-0 opacity-0 overflow-hidden'
+            ? 'translate-y-0 opacity-100'
+            : 'translate-y-full opacity-0'
         }`}
       >
-        Contatar
+        Entrar em Contato
       </div>
     </div>
   )
