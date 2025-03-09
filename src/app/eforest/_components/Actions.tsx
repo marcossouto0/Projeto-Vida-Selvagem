@@ -1,105 +1,243 @@
+'use client'
+
+import { useRef, useEffect } from 'react'
+import {
+  FaHandHoldingHeart,
+  FaGraduationCap,
+  FaHandsHelping,
+  FaSeedling,
+  FaUsers
+} from 'react-icons/fa'
+
 export default function Actions() {
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const actionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn')
+            entry.target.classList.remove('opacity-0')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (titleRef.current) observer.observe(titleRef.current)
+    actionRefs.forEach(ref => {
+      if (ref.current) observer.observe(ref.current)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
   return (
-    <div className="bg-green-100">
-      <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
-        <h2 className="text-4xl md:text-5xl font-bold">Nossas Ações</h2>
+    <div
+      className="bg-gradient-to-b from-emerald-100 to-emerald-200 py-16 md:py-24"
+      ref={sectionRef}
+    >
+      <div className="container mx-auto px-5 md:px-15 lg:px-30">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center p-3 bg-emerald-700 rounded-full mb-6">
+            <FaHandHoldingHeart className="text-emerald-100 text-3xl" />
+          </div>
+          <h2
+            ref={titleRef}
+            className="text-4xl md:text-5xl font-bold mb-6 text-emerald-800 opacity-0 transition-opacity duration-1000"
+          >
+            Nossas Ações
+          </h2>
+          <div className="w-24 h-1 bg-emerald-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl md:text-2xl text-emerald-700 max-w-4xl mx-auto leading-relaxed">
+            Conheça as iniciativas para proteger as florestas equatoriais e suas
+            espécies, incluindo a onça pintada.
+          </p>
+        </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          1. Conservação e Proteção
-        </h3>
-        <ul className="bg-green-200 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Criação e manutenção de áreas protegidas</strong> – Apoiar a
-            expansão de parques nacionais e reservas nas florestas equatoriais.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Corredores ecológicos</strong> – Estabelecer conexões entre
-            fragmentos florestais para permitir o deslocamento de jaguares e
-            outras espécies.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Combate ao tráfico de animais</strong> – Fortalecer a
-            fiscalização e aplicação de leis contra o comércio ilegal de fauna
-            silvestre.
-          </li>
-        </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div
+            ref={actionRefs[0]}
+            className="bg-white rounded-xl p-8 shadow-lg border border-emerald-200 opacity-0 transition-all duration-1000 transform translate-y-8 hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div className="bg-emerald-700 p-3 rounded-lg inline-flex mb-6">
+              <FaHandsHelping className="text-emerald-100 text-2xl" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-emerald-800">
+              Conservação e Proteção
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Criação e manutenção de áreas protegidas
+                  </strong>{' '}
+                  – Apoiar a expansão de parques nacionais e reservas nas
+                  florestas equatoriais.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Corredores ecológicos
+                  </strong>{' '}
+                  – Estabelecer conexões entre fragmentos florestais para
+                  permitir o deslocamento de jaguares e outras espécies.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Combate ao tráfico de animais
+                  </strong>{' '}
+                  – Fortalecer a fiscalização e aplicação de leis contra o
+                  comércio ilegal de fauna silvestre.
+                </span>
+              </li>
+            </ul>
+          </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          2. Educação e Conscientização
-        </h3>
-        <ul className="bg-green-200 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Programas educativos</strong> – Desenvolver materiais sobre
-            a importância das florestas equatoriais e seus habitantes.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Campanhas de sensibilização</strong> – Informar sobre os
-            impactos do desmatamento e do consumo de produtos que contribuem
-            para a destruição florestal.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Ecoturismo responsável</strong> – Promover visitas guiadas
-            que gerem renda para comunidades locais e incentivem a conservação.
-          </li>
-        </ul>
+          <div
+            ref={actionRefs[1]}
+            className="bg-white rounded-xl p-8 shadow-lg border border-emerald-200 opacity-0 transition-all duration-1000 transform translate-y-8 hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div className="bg-emerald-700 p-3 rounded-lg inline-flex mb-6">
+              <FaGraduationCap className="text-emerald-100 text-2xl" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-emerald-800">
+              Educação e Conscientização
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Programas educativos
+                  </strong>{' '}
+                  – Desenvolver materiais e atividades sobre a importância das
+                  florestas equatoriais e sua biodiversidade.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Capacitação de comunidades locais
+                  </strong>{' '}
+                  – Promover práticas sustentáveis de manejo florestal e
+                  alternativas econômicas ao desmatamento.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Campanhas de sensibilização
+                  </strong>{' '}
+                  – Informar sobre as ameaças à floresta equatorial e a urgência
+                  de sua preservação.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          3. Apoio às Comunidades Locais
-        </h3>
-        <ul className="bg-green-200 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Parcerias com povos indígenas</strong> – Colaborar com
-            comunidades tradicionais que são guardiãs das florestas há gerações.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Alternativas econômicas sustentáveis</strong> – Desenvolver
-            projetos de extrativismo sustentável, como coleta de castanhas, açaí
-            e outros produtos florestais.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Agricultura sustentável</strong> – Promover sistemas
-            agroflorestais que combinam produção de alimentos com conservação da
-            floresta.
-          </li>
-        </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            ref={actionRefs[2]}
+            className="bg-white rounded-xl p-8 shadow-lg border border-emerald-200 opacity-0 transition-all duration-1000 transform translate-y-8 hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div className="bg-emerald-700 p-3 rounded-lg inline-flex mb-6">
+              <FaSeedling className="text-emerald-100 text-2xl" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-emerald-800">
+              Restauração e Desenvolvimento Sustentável
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">Reflorestamento</strong>{' '}
+                  – Recuperar áreas degradadas com espécies nativas,
+                  especialmente em zonas de transição e margens de rios.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Sistemas agroflorestais
+                  </strong>{' '}
+                  – Incentivar práticas que combinam agricultura, conservação
+                  florestal e geração de renda.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Ecoturismo responsável
+                  </strong>{' '}
+                  – Desenvolver iniciativas que valorizem a floresta em pé e
+                  gerem benefícios para comunidades locais.
+                </span>
+              </li>
+            </ul>
+          </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          4. Combate ao Desmatamento
-        </h3>
-        <ul className="bg-green-200 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Monitoramento por satélite</strong> – Utilizar tecnologia
-            para detectar desmatamento em tempo real e permitir ações rápidas.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Reflorestamento</strong> – Recuperar áreas degradadas com
-            espécies nativas, restaurando habitats para o jaguar e outras
-            espécies.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Certificação de produtos</strong> – Incentivar o consumo de
-            produtos certificados que não contribuem para o desmatamento.
-          </li>
-        </ul>
-
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          5. Pesquisa e Monitoramento
-        </h3>
-        <ul className="bg-green-200 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Estudos populacionais</strong> – Apoiar pesquisas sobre
-            jaguares e outras espécies para embasar estratégias de conservação.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Monitoramento da biodiversidade</strong> – Acompanhar a
-            saúde dos ecossistemas florestais e seus serviços ambientais.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Tecnologias inovadoras</strong> – Desenvolver e aplicar
-            novas ferramentas para conservação, como armadilhas fotográficas e
-            rastreamento por GPS.
-          </li>
-        </ul>
+          <div
+            ref={actionRefs[3]}
+            className="bg-white rounded-xl p-8 shadow-lg border border-emerald-200 opacity-0 transition-all duration-1000 transform translate-y-8 hover:shadow-2xl hover:-translate-y-1"
+          >
+            <div className="bg-emerald-700 p-3 rounded-lg inline-flex mb-6">
+              <FaUsers className="text-emerald-100 text-2xl" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-emerald-800">
+              Parcerias e Políticas
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Alianças internacionais
+                  </strong>{' '}
+                  – Colaborar com organizações e países para implementar acordos
+                  de proteção florestal e biodiversidade.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Incentivos econômicos
+                  </strong>{' '}
+                  – Apoiar mecanismos de pagamento por serviços ambientais e
+                  produtos florestais não-madeireiros.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-emerald-600 mr-2 mt-1 text-lg">•</span>
+                <span className="text-gray-700">
+                  <strong className="text-emerald-700">
+                    Monitoramento por satélite
+                  </strong>{' '}
+                  – Utilizar tecnologia para detectar desmatamento em tempo real
+                  e orientar ações de fiscalização.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )

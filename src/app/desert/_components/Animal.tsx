@@ -1,36 +1,103 @@
+'use client'
+
 import Image from 'next/image'
+import { useRef, useEffect, useState } from 'react'
+import {
+  FaHorse,
+  FaWater,
+  FaSun,
+  FaLeaf,
+  FaExclamationTriangle
+} from 'react-icons/fa'
 
 export default function Animal() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+  const contentRefs = Array(5)
+    .fill(0)
+    .map(() => useRef(null))
+
+  useEffect(() => {
+    setIsVisible(true)
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn')
+            entry.target.classList.remove('opacity-0')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    contentRefs.forEach(ref => {
+      if (ref.current) observer.observe(ref.current)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
   return (
-    <div className="bg-[#E6C384] text-black">
-      <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
-        <div>
-          <h2 className="text-4xl md:text-5xl font-bold">
+    <div
+      ref={sectionRef}
+      className={`bg-gradient-to-b from-amber-800 to-amber-700 text-amber-50 py-16 md:py-24 transition-opacity duration-1000 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      <div className="container mx-auto px-5 md:px-15 lg:px-30">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center p-3 bg-amber-600 rounded-full mb-6">
+            <FaHorse className="text-amber-100 text-3xl" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Camelo: O Navio do Deserto
           </h2>
-          <p className="text-xl md:text-2xl mt-5">
+          <div className="w-24 h-1 bg-amber-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
             Mestres da sobrevivência, os camelos desenvolveram adaptações
             extraordinárias para prosperar nos ambientes mais áridos do planeta.
             Mas a desertificação e as mudanças climáticas ameaçam seu habitat
             natural.
           </p>
         </div>
-        <div className="mt-10 md:mt-20 grid grid-cols-1 xl:grid-cols-2 gap-10 md:gap-20">
-          <div className="flex justify-center xl:order-2">
+
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center mb-20">
+          <div
+            className="xl:order-2 relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500"
+            ref={contentRefs[0]}
+          >
             <Image
               src="/camel.jpg"
-              alt="Camelo"
-              width={500}
-              height={0}
-              className=" rounded-xl overflow-hidden "
+              alt="Camelo atravessando o deserto"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end">
+              <p className="text-white/90 p-4 text-sm italic">
+                Adaptados para sobreviver em condições extremas, os camelos
+                podem atravessar grandes distâncias no deserto sem água
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col justify-around gap-10 md:gap-20">
+
+          <div
+            ref={contentRefs[1]}
+            className="flex flex-col justify-around gap-8 opacity-0 transition-all duration-1000"
+          >
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold">
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+                <span className="bg-amber-600 p-2 rounded-lg mr-3 inline-flex">
+                  <FaSun className="text-amber-100" />
+                </span>
                 Características
               </h3>
-              <p className="text-xl md:text-2xl mt-5">
+              <p className="text-lg leading-relaxed mb-4">
                 Os camelos são mamíferos da família Camelidae e são conhecidos
                 por suas extraordinárias adaptações para sobreviver em ambientes
                 desérticos. Existem duas espécies principais: o camelo-bactriano
@@ -38,23 +105,30 @@ export default function Animal() {
                 uma corcova) encontrado principalmente no Oriente Médio e norte
                 da África.
               </p>
-              <p className="text-xl md:text-2xl mt-5">
+              <p className="text-lg leading-relaxed mb-4">
                 Para sobreviverem em ambientes extremamente áridos, os camelos
                 possuem adaptações notáveis:
               </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-20 mt-3">
-                <li className="text-xl md:text-2xl">
-                  <strong>Corcovas:</strong> Armazenam gordura (não água),
-                  fornecendo energia quando alimentos são escassos e isolamento
-                  térmico.
-                </li>
-                <li className="text-xl md:text-2xl">
-                  <strong>Conservação de água:</strong> Podem perder até 25% do
-                  peso corporal em água sem sofrer danos (humanos morrem com
-                  15%) e beber até 200 litros em uma única vez.
-                </li>
-              </ul>
-              <p className="text-xl md:text-2xl mt-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div className="bg-amber-600/20 p-4 rounded-lg border border-amber-600/30 shadow-md hover:shadow-lg transition-all duration-300">
+                  <h4 className="font-bold text-amber-200 mb-2">Corcovas</h4>
+                  <p>
+                    Armazenam gordura (não água), fornecendo energia quando
+                    alimentos são escassos e isolamento térmico.
+                  </p>
+                </div>
+                <div className="bg-amber-600/20 p-4 rounded-lg border border-amber-600/30 shadow-md hover:shadow-lg transition-all duration-300">
+                  <h4 className="font-bold text-amber-200 mb-2">
+                    Conservação de água
+                  </h4>
+                  <p>
+                    Podem perder até 25% do peso corporal em água sem sofrer
+                    danos (humanos morrem com 15%) e beber até 200 litros em uma
+                    única vez.
+                  </p>
+                </div>
+              </div>
+              <p className="text-lg leading-relaxed">
                 Além disso, possuem narinas que podem fechar para bloquear
                 areia, pálpebras triplas e cílios longos para proteção contra
                 tempestades de areia, e pés largos e almofadados que distribuem
@@ -63,45 +137,71 @@ export default function Animal() {
             </div>
           </div>
         </div>
-        <div>
-          <h3 className="text-3xl md:text-4xl font-bold mt-10 md:mt-20">
-            Adaptações Fisiológicas:
+
+        <div
+          ref={contentRefs[2]}
+          className="bg-amber-900/30 p-8 rounded-xl shadow-xl mb-20 opacity-0 transition-all duration-1000"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+            <span className="bg-amber-600 p-2 rounded-lg mr-3 inline-flex">
+              <FaWater className="text-amber-100" />
+            </span>
+            Adaptações Fisiológicas
           </h3>
-          <p className="text-xl md:text-2xl mt-5">
-            Os camelos possuem um sistema circulatório e renal altamente
-            especializado. Seus glóbulos vermelhos são ovais (não circulares
-            como nos humanos), permitindo fluxo contínuo mesmo quando
-            desidratados. Seus rins e intestinos são extremamente eficientes na
-            conservação de água.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            Sua temperatura corporal pode variar de 34°C pela manhã até 41°C
-            durante o dia, reduzindo a perda de água por transpiração. Além
-            disso, seu pelo espesso reflete o calor solar e proporciona
-            isolamento contra as temperaturas extremas do deserto.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            Essas adaptações permitem que os camelos sobrevivam até duas semanas
-            sem água e vários meses sem comida, tornando-os perfeitamente
-            adaptados para as condições extremas dos desertos.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-amber-800/50 p-5 rounded-lg border border-amber-700/50 hover:bg-amber-800/70 transition-all duration-300">
+              <h4 className="font-bold text-xl mb-3">Sistema Circulatório</h4>
+              <p className="text-amber-100">
+                Glóbulos vermelhos ovais (não circulares como nos humanos),
+                permitindo fluxo contínuo mesmo quando desidratados.
+              </p>
+            </div>
+            <div className="bg-amber-800/50 p-5 rounded-lg border border-amber-700/50 hover:bg-amber-800/70 transition-all duration-300">
+              <h4 className="font-bold text-xl mb-3">Regulação Térmica</h4>
+              <p className="text-amber-100">
+                Temperatura corporal pode variar de 34°C pela manhã até 41°C
+                durante o dia, reduzindo a perda de água por transpiração.
+              </p>
+            </div>
+            <div className="bg-amber-800/50 p-5 rounded-lg border border-amber-700/50 hover:bg-amber-800/70 transition-all duration-300">
+              <h4 className="font-bold text-xl mb-3">Isolamento</h4>
+              <p className="text-amber-100">
+                Pelo espesso reflete o calor solar e proporciona isolamento
+                contra as temperaturas extremas do deserto.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 text-center">
+            <p className="text-lg text-amber-100 max-w-4xl mx-auto">
+              Essas adaptações permitem que os camelos sobrevivam até duas
+              semanas sem água e vários meses sem comida, tornando-os
+              perfeitamente adaptados para as condições extremas dos desertos.
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className="text-3xl md:text-4xl font-bold mt-10 md:mt-20">
-            Importância:
+
+        <div
+          ref={contentRefs[3]}
+          className="mb-20 opacity-0 transition-all duration-1000"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+            <span className="bg-amber-600 p-2 rounded-lg mr-3 inline-flex">
+              <FaLeaf className="text-amber-100" />
+            </span>
+            Importância
           </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-10 mt-5">
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold">Ecológica:</h4>
-              <p className="text-xl md:text-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-amber-900/80 to-amber-800/80 rounded-xl p-6 shadow-lg border border-amber-700/30 hover:shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:-translate-y-1 transition-all duration-300">
+              <h4 className="text-2xl md:text-3xl font-bold mb-4">Ecológica</h4>
+              <p className="text-lg leading-relaxed text-amber-100">
                 Os camelos desempenham um papel importante nos ecossistemas
                 desérticos, dispersando sementes através de suas fezes e
                 ajudando a manter a biodiversidade vegetal em ambientes áridos.
               </p>
             </div>
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold">Cultural:</h4>
-              <p className="text-xl md:text-2xl">
+            <div className="bg-gradient-to-br from-amber-900/80 to-amber-800/80 rounded-xl p-6 shadow-lg border border-amber-700/30 hover:shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:-translate-y-1 transition-all duration-300">
+              <h4 className="text-2xl md:text-3xl font-bold mb-4">Cultural</h4>
+              <p className="text-lg leading-relaxed text-amber-100">
                 Por milênios, os camelos têm sido essenciais para as culturas do
                 deserto, fornecendo transporte, leite, carne, lã e couro. Eles
                 permitiram o comércio através das rotas de caravanas como a Rota
@@ -109,9 +209,11 @@ export default function Animal() {
                 sociedades.
               </p>
             </div>
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold">Científica:</h4>
-              <p className="text-xl md:text-2xl">
+            <div className="bg-gradient-to-br from-amber-900/80 to-amber-800/80 rounded-xl p-6 shadow-lg border border-amber-700/30 hover:shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:-translate-y-1 transition-all duration-300">
+              <h4 className="text-2xl md:text-3xl font-bold mb-4">
+                Científica
+              </h4>
+              <p className="text-lg leading-relaxed text-amber-100">
                 As adaptações dos camelos inspiram pesquisas biomédicas e
                 tecnológicas, desde tratamentos para desidratação humana até o
                 desenvolvimento de tecnologias de conservação de água e energia
@@ -120,28 +222,52 @@ export default function Animal() {
             </div>
           </div>
         </div>
-        <div>
-          <h3 className="text-3xl md:text-4xl font-bold mt-10 md:mt-20">
-            Ameaças:
+
+        <div
+          ref={contentRefs[4]}
+          className="bg-amber-900/50 p-8 rounded-xl shadow-xl opacity-0 transition-all duration-1000"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+            <span className="bg-amber-600 p-2 rounded-lg mr-3 inline-flex">
+              <FaExclamationTriangle className="text-amber-100" />
+            </span>
+            Ameaças
           </h3>
-          <p className="text-xl md:text-2xl mt-5">
-            Apesar de suas incríveis adaptações, os camelos selvagens enfrentam
-            diversas ameaças. A desertificação causada pelas mudanças climáticas
-            está alterando seus habitats naturais, enquanto a expansão urbana e
-            agrícola reduz suas áreas de forrageamento.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            A caça ilegal, principalmente para carne e troféus, continua sendo
-            uma ameaça significativa para as populações selvagens. Além disso, a
-            hibridização com camelos domésticos está diluindo o pool genético
-            das populações selvagens remanescentes.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            O camelo-bactriano selvagem está classificado como "Criticamente em
-            Perigo" na Lista Vermelha da IUCN, com menos de 1.000 indivíduos
-            restantes na natureza. Embora os dromedários domésticos sejam
-            abundantes, suas contrapartes selvagens são extremamente raras.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+            <div className="bg-amber-800/40 p-5 rounded-lg border border-amber-700/50">
+              <h4 className="font-bold text-xl mb-3 text-amber-200">
+                Desertificação
+              </h4>
+              <p className="text-amber-100">
+                Causada pelas mudanças climáticas, está alterando seus habitats
+                naturais, enquanto a expansão urbana e agrícola reduz suas áreas
+                de forrageamento.
+              </p>
+            </div>
+            <div className="bg-amber-800/40 p-5 rounded-lg border border-amber-700/50">
+              <h4 className="font-bold text-xl mb-3 text-amber-200">
+                Caça Ilegal
+              </h4>
+              <p className="text-amber-100">
+                Principalmente para carne e troféus, continua sendo uma ameaça
+                significativa para as populações selvagens.
+              </p>
+            </div>
+          </div>
+          <div className="bg-amber-700/20 p-6 rounded-lg border border-amber-600/30 max-w-4xl mx-auto">
+            <p className="text-lg text-center text-white mb-3">
+              O camelo-bactriano selvagem está classificado como{' '}
+              <span className="font-bold text-amber-200">
+                "Criticamente em Perigo"
+              </span>{' '}
+              na Lista Vermelha da IUCN
+            </p>
+            <p className="text-lg text-center text-amber-100">
+              Com menos de 1.000 indivíduos restantes na natureza. Embora os
+              dromedários domésticos sejam abundantes, suas contrapartes
+              selvagens são extremamente raras.
+            </p>
+          </div>
         </div>
       </div>
     </div>

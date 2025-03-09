@@ -1,155 +1,310 @@
+'use client'
+
 import Image from 'next/image'
+import { useRef, useEffect, useState } from 'react'
+import {
+  FaBinoculars,
+  FaHome,
+  FaLeaf,
+  FaExclamationTriangle,
+  FaHistory
+} from 'react-icons/fa'
 
 export default function Animal() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+  const contentRefs = Array(5)
+    .fill(0)
+    .map(() => useRef(null))
+
+  useEffect(() => {
+    setIsVisible(true)
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn')
+            entry.target.classList.remove('opacity-0')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    contentRefs.forEach(ref => {
+      if (ref.current) observer.observe(ref.current)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
   return (
-    <div className="bg-[#8B4513] text-white">
-      <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
-        <div>
-          <h2 className="text-4xl md:text-5xl font-bold">
+    <div
+      ref={sectionRef}
+      className={`bg-gradient-to-b from-yellow-800 to-yellow-700 text-yellow-50 py-16 md:py-24 transition-opacity duration-1000 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      <div className="container mx-auto px-5 md:px-15 lg:px-30">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center p-3 bg-yellow-600 rounded-full mb-6">
+            <FaBinoculars className="text-yellow-100 text-3xl" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Bisão Americano: O Gigante das Planícies
           </h2>
-          <p className="text-xl md:text-2xl mt-5">
+          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
             Imponente, resiliente e ecologicamente vital, o bisão americano
             moldou a paisagem e a cultura das Grandes Planícies por milênios.
             Quase extinto no século XIX, sua recuperação representa uma das
             maiores histórias de conservação da América do Norte.
           </p>
         </div>
-        <div className="mt-10 md:mt-20 grid grid-cols-1 xl:grid-cols-2 gap-10 md:gap-20">
-          <div className="flex justify-center xl:order-2">
+
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center mb-20">
+          <div
+            className="xl:order-2 relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500"
+            ref={contentRefs[0]}
+          >
             <Image
               src="/bison.jpg"
-              alt="Bisão Americano"
-              width={500}
-              height={0}
-              className=" rounded-xl overflow-hidden "
+              alt="Bisão americano nas planícies"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end">
+              <p className="text-white/90 p-4 text-sm italic">
+                O bisão americano é o maior mamífero terrestre da América do
+                Norte, podendo pesar até 900 kg
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col justify-around gap-10 md:gap-20">
+
+          <div
+            ref={contentRefs[1]}
+            className="flex flex-col justify-around gap-8 opacity-0 transition-all duration-1000"
+          >
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold">
-                Características
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+                <span className="bg-yellow-600 p-2 rounded-lg mr-3 inline-flex">
+                  <FaHome className="text-yellow-100" />
+                </span>
+                Características e Habitat
               </h3>
-              <p className="text-xl md:text-2xl mt-5">
-                O bisão americano (Bison bison) é o maior mamífero terrestre da
-                América do Norte, com machos adultos pesando até 900 kg e
-                medindo 3 metros de comprimento. Sua silhueta característica
-                inclui uma grande cabeça, ombros maciços com uma proeminente
-                corcova muscular, e chifres curvos em ambos os sexos.
+              <p className="text-lg leading-relaxed mb-4">
+                O bisão americano (Bison bison) é um dos maiores mamíferos
+                terrestres da América do Norte. Estes herbívoros massivos podem
+                pesar entre 400 e 900 kg, alcançar uma altura de 1,5 a 2 metros
+                no ombro, e comprimento de até 3,5 metros.
               </p>
-              <p className="text-xl md:text-2xl mt-5">
-                Suas adaptações notáveis incluem:
+              <p className="text-lg leading-relaxed mb-6">
+                Existem dois subespécies: o bisão das planícies (Bison bison
+                bison) e o bisão das florestas (Bison bison athabascae),
+                adaptados a diferentes condições ecológicas.
               </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-20 mt-3">
-                <li className="text-xl md:text-2xl">
-                  <strong>Pelagem densa:</strong> Especialmente no inverno, com
-                  pelos que podem atingir 5 cm no corpo e até 40 cm na cabeça,
-                  pescoço e ombros, proporcionando excelente isolamento térmico.
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div className="bg-yellow-600/20 p-4 rounded-lg border border-yellow-600/30 shadow-md hover:shadow-lg transition-all duration-300">
+                  <h4 className="font-bold text-yellow-200 mb-2">
+                    Características Físicas
+                  </h4>
+                  <p>
+                    Corpo maciço, cabeça grande, corcova pronunciada sobre os
+                    ombros e chifres curvos. Pelagem densa e marrom, que se
+                    torna mais espessa no inverno.
+                  </p>
+                </div>
+                <div className="bg-yellow-600/20 p-4 rounded-lg border border-yellow-600/30 shadow-md hover:shadow-lg transition-all duration-300">
+                  <h4 className="font-bold text-yellow-200 mb-2">
+                    Habitat Natural
+                  </h4>
+                  <p>
+                    Campos e pradarias abertas, onde viviam em enormes rebanhos
+                    migratórios que seguiam os padrões sazonais de crescimento
+                    das gramíneas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          ref={contentRefs[2]}
+          className="bg-yellow-900/30 p-8 rounded-xl shadow-xl mb-20 opacity-0 transition-all duration-1000"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+            <span className="bg-yellow-600 p-2 rounded-lg mr-3 inline-flex">
+              <FaLeaf className="text-yellow-100" />
+            </span>
+            Ecologia e Comportamento
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-yellow-800/50 p-5 rounded-lg border border-yellow-700/50 hover:bg-yellow-800/70 transition-all duration-300">
+              <h4 className="font-bold text-xl mb-3">Alimentação</h4>
+              <p className="text-yellow-100">
+                Herbívoros que consomem principalmente gramíneas e outras
+                plantas herbáceas. Um adulto pode ingerir até 12 kg de vegetação
+                por dia.
+              </p>
+            </div>
+            <div className="bg-yellow-800/50 p-5 rounded-lg border border-yellow-700/50 hover:bg-yellow-800/70 transition-all duration-300">
+              <h4 className="font-bold text-xl mb-3">Estrutura Social</h4>
+              <p className="text-yellow-100">
+                Vivem em rebanhos liderados por fêmeas. Os machos formam grupos
+                separados, juntando-se ao rebanho principal apenas na temporada
+                de reprodução.
+              </p>
+            </div>
+            <div className="bg-yellow-800/50 p-5 rounded-lg border border-yellow-700/50 hover:bg-yellow-800/70 transition-all duration-300">
+              <h4 className="font-bold text-xl mb-3">Papel Ecológico</h4>
+              <p className="text-yellow-100">
+                São "engenheiros do ecossistema", moldando a paisagem através do
+                pastoreio, criando habitats diversos para outras espécies.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 text-center">
+            <p className="text-lg text-yellow-100 max-w-4xl mx-auto">
+              O pastoreio do bisão promove a biodiversidade das planícies,
+              estimulando o crescimento de diferentes plantas, aerando o solo
+              com seus cascos e dispersando sementes através de suas fezes.
+            </p>
+          </div>
+        </div>
+
+        <div
+          ref={contentRefs[3]}
+          className="mb-20 opacity-0 transition-all duration-1000"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
+            <span className="bg-yellow-600 p-2 rounded-lg mr-3 inline-flex">
+              <FaHistory className="text-yellow-100" />
+            </span>
+            História e Importância Cultural
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-gradient-to-br from-yellow-900/80 to-yellow-800/80 rounded-xl p-6 shadow-lg border border-yellow-700/30 hover:shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:-translate-y-1 transition-all duration-300">
+              <h4 className="text-2xl md:text-3xl font-bold mb-4">
+                Povos Indígenas
+              </h4>
+              <p className="text-lg leading-relaxed text-yellow-100">
+                Para muitas nações indígenas das Grandes Planícies, o bisão era
+                o centro da vida, fornecendo alimento, abrigo, ferramentas e
+                vestimentas. A relação com o bisão estava profundamente
+                entrelaçada com sua espiritualidade e identidade cultural.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-yellow-900/80 to-yellow-800/80 rounded-xl p-6 shadow-lg border border-yellow-700/30 hover:shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:-translate-y-1 transition-all duration-300">
+              <h4 className="text-2xl md:text-3xl font-bold mb-4">
+                Colonização
+              </h4>
+              <p className="text-lg leading-relaxed text-yellow-100">
+                O extermínio sistemático dos bisões no século XIX, que reduziu a
+                população de 30-60 milhões para menos de 1.000 indivíduos, foi
+                uma estratégia deliberada para subjugar os povos indígenas,
+                eliminando sua principal fonte de subsistência.
+              </p>
+            </div>
+          </div>
+          <div className="bg-gradient-to-br from-yellow-900/80 to-yellow-800/80 rounded-xl p-6 shadow-lg border border-yellow-700/30">
+            <h4 className="text-2xl font-bold mb-4 text-center">
+              Declínio e Retorno
+            </h4>
+            <p className="text-lg leading-relaxed text-yellow-100 text-center">
+              Dos estimados 30-60 milhões de bisões que vagavam pela América do
+              Norte, a população foi reduzida a menos de 1.000 indivíduos por
+              volta de 1900. Graças aos esforços pioneiros de conservação, hoje
+              existem aproximadamente 500.000 bisões, embora menos de 5% sejam
+              geneticamente puros e ecologicamente selvagens.
+            </p>
+          </div>
+        </div>
+
+        <div
+          ref={contentRefs[4]}
+          className="bg-yellow-900/50 p-8 rounded-xl shadow-xl opacity-0 transition-all duration-1000"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
+            <span className="bg-yellow-600 p-2 rounded-lg mr-3 inline-flex">
+              <FaExclamationTriangle className="text-yellow-100" />
+            </span>
+            Status de Conservação
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+            <div className="bg-yellow-800/40 p-5 rounded-lg border border-yellow-700/50">
+              <h4 className="font-bold text-xl mb-3 text-yellow-200">
+                Ameaças Atuais
+              </h4>
+              <ul className="space-y-2 text-yellow-100">
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>
+                    Perda de habitat devido à conversão de campos nativos para
+                    agricultura
+                  </span>
                 </li>
-                <li className="text-xl md:text-2xl">
-                  <strong>Cabeça adaptada:</strong> Estrutura craniana que
-                  permite mover a neve com a cabeça para acessar gramíneas
-                  durante o inverno, e posicionada baixa para pastar
-                  eficientemente.
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>
+                    Fragmentação genética e hibridização com gado doméstico
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>
+                    Políticas que limitam a restauração de populações selvagens
+                  </span>
                 </li>
               </ul>
-              <p className="text-xl md:text-2xl mt-5">
-                Apesar de seu tamanho imponente, bisões são surpreendentemente
-                ágeis, podendo correr a até 55 km/h, saltar cercas de 1,8 metro
-                de altura e nadar através de rios largos. São herbívoros que se
-                alimentam principalmente de gramíneas e outras plantas
-                herbáceas.
-              </p>
+            </div>
+            <div className="bg-yellow-800/40 p-5 rounded-lg border border-yellow-700/50">
+              <h4 className="font-bold text-xl mb-3 text-yellow-200">
+                Esforços de Conservação
+              </h4>
+              <ul className="space-y-2 text-yellow-100">
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>
+                    Reintrodução em parques nacionais e terras indígenas
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>
+                    Programas de preservação genética para manter linhagens
+                    puras
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>
+                    Restauração de campos nativos para expandir habitat
+                    disponível
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-        <div>
-          <h3 className="text-3xl md:text-4xl font-bold mt-10 md:mt-20">
-            História e Recuperação:
-          </h3>
-          <p className="text-xl md:text-2xl mt-5">
-            Antes da colonização europeia, estima-se que 30 a 60 milhões de
-            bisões vagavam pelas planícies norte-americanas em manadas enormes.
-            Eles eram o centro da vida e cultura de muitos povos indígenas,
-            fornecendo alimento, abrigo, ferramentas e base espiritual.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            No século XIX, a caça comercial em massa, incentivada como
-            estratégia para subjugar os povos indígenas, reduziu a população a
-            menos de 1.000 indivíduos por volta de 1890. Esta foi uma das mais
-            rápidas e dramáticas reduções populacionais de uma espécie na
-            história registrada.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            Esforços de conservação iniciados no final do século XIX por
-            visionários como William Hornaday e o Bronx Zoo salvaram a espécie
-            da extinção. Hoje, aproximadamente 500.000 bisões existem na América
-            do Norte, embora menos de 5% sejam considerados ecologicamente
-            selvagens e geneticamente puros.
-          </p>
-        </div>
-        <div>
-          <h3 className="text-3xl md:text-4xl font-bold mt-10 md:mt-20">
-            Importância:
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-10 mt-5">
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold">Ecológica:</h4>
-              <p className="text-xl md:text-2xl">
-                Como "engenheiros do ecossistema", os bisões moldam a paisagem
-                dos campos através do pastoreio seletivo, criação de poças
-                temporárias (wallows), dispersão de sementes e ciclagem de
-                nutrientes. Sua presença aumenta a biodiversidade vegetal e cria
-                habitat para diversas espécies de aves e pequenos mamíferos.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold">Cultural:</h4>
-              <p className="text-xl md:text-2xl">
-                Para muitos povos indígenas norte-americanos, o bisão permanece
-                central para identidade cultural, práticas espirituais e
-                soberania alimentar. A restauração do bisão está intrinsecamente
-                ligada aos esforços de revitalização cultural de nações como
-                Blackfeet, Lakota e Assiniboine.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-2xl md:text-3xl font-bold">Econômica:</h4>
-              <p className="text-xl md:text-2xl">
-                O bisão oferece oportunidades para ecoturismo, produção
-                sustentável de carne e desenvolvimento econômico para
-                comunidades rurais e indígenas. Sua carne é mais magra que a
-                bovina e rica em nutrientes, com crescente demanda no mercado.
-              </p>
-            </div>
+          <div className="bg-yellow-700/20 p-6 rounded-lg border border-yellow-600/30 max-w-4xl mx-auto">
+            <p className="text-lg text-center text-white mb-3">
+              <span className="font-bold text-yellow-200">
+                O futuro do bisão americano
+              </span>{' '}
+              depende da nossa capacidade de restaurar não apenas a espécie, mas
+              todo o ecossistema dos campos nativos
+            </p>
+            <p className="text-lg text-center text-yellow-100">
+              A verdadeira recuperação do bisão envolve restaurar seu papel
+              ecológico, permitindo que rebanhos selvagens migrem livremente em
+              grandes áreas de habitat contíguo.
+            </p>
           </div>
-        </div>
-        <div>
-          <h3 className="text-3xl md:text-4xl font-bold mt-10 md:mt-20">
-            Desafios Atuais:
-          </h3>
-          <p className="text-xl md:text-2xl mt-5">
-            Apesar da recuperação numérica, o bisão enfrenta desafios
-            significativos para restauração ecológica completa. A fragmentação
-            de habitat limita a capacidade de estabelecer manadas
-            verdadeiramente selvagens em escala de paisagem. Conflitos com a
-            pecuária, incluindo preocupações com transmissão de doenças como
-            brucelose, restringem a expansão de populações.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            A integridade genética é outra preocupação, pois muitos bisões
-            comerciais têm algum grau de hibridização com gado doméstico. Apenas
-            algumas populações, como as de Yellowstone e Wood Buffalo, são
-            consideradas geneticamente puras.
-          </p>
-          <p className="text-xl md:text-2xl mt-5">
-            Esforços de conservação atuais focam na restauração do bisão como
-            espécie selvagem em terras públicas e tribais, expansão de
-            corredores de habitat, e desenvolvimento de estratégias de manejo
-            que integrem valores ecológicos, culturais e econômicos. Em 2016, o
-            bisão foi designado como Mamífero Nacional dos Estados Unidos,
-            simbolizando seu papel único na história e ecologia norte-americana.
-          </p>
         </div>
       </div>
     </div>

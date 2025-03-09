@@ -1,112 +1,301 @@
+'use client'
+
+import { useRef, useEffect } from 'react'
+import {
+  FaShieldAlt,
+  FaFire,
+  FaRecycle,
+  FaSearch,
+  FaGraduationCap
+} from 'react-icons/fa'
+
 export default function Actions() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+
+    contentRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current)
+
+      contentRefs.current.forEach(ref => {
+        if (ref) observer.unobserve(ref)
+      })
+    }
+  }, [])
+
   return (
-    <div className="bg-orange-50">
-      <div className="mx-5 md:mx-15 lg:mx-30 py-10 md:py-20">
-        <h2 className="text-4xl md:text-5xl font-bold">Nossas Ações</h2>
+    <div
+      ref={sectionRef}
+      className="bg-gradient-to-b from-amber-950 to-amber-900 text-white py-16 md:py-24 opacity-0 transition-opacity duration-1000"
+    >
+      <div className="container mx-auto px-5 md:px-15 lg:px-30">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Nossas Ações</h2>
+          <div className="w-24 h-1 bg-amber-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl text-amber-100 max-w-4xl mx-auto leading-relaxed">
+            Conheça as iniciativas que desenvolvemos para proteger as savanas e
+            seus habitantes, com foco especial na conservação do
+            tamanduá-bandeira e seu habitat.
+          </p>
+        </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          1. Conservação e Proteção
-        </h3>
-        <ul className="bg-orange-100 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Criação e ampliação de áreas protegidas</strong> – Apoiar a
-            expansão de áreas protegidas nas savanas globais, que estão entre os
-            biomas menos protegidos do mundo.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Corredores ecológicos</strong> – Estabelecer conexões entre
-            fragmentos de savanas para permitir o deslocamento de
-            tamanduás-bandeira e outras espécies de amplo território.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Monitoramento de populações</strong> – Acompanhar o status
-            das populações de tamanduás-bandeira através de tecnologias como
-            armadilhas fotográficas e rastreamento.
-          </li>
-        </ul>
+        <div className="space-y-16">
+          {/* Conservação e Proteção */}
+          <div
+            ref={el => (contentRefs.current[0] = el)}
+            className="opacity-0 transition-all duration-1000 transform translate-y-8"
+          >
+            <div className="flex items-center mb-6">
+              <div className="bg-amber-600 p-3 rounded-lg mr-4">
+                <FaShieldAlt className="text-amber-100 text-2xl" />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Conservação e Proteção
+              </h3>
+            </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          2. Manejo Integrado do Fogo
-        </h3>
-        <ul className="bg-orange-100 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Queimadas prescritas</strong> – Implementar técnicas de
-            queima controlada em épocas adequadas, respeitando o papel ecológico
-            do fogo nas savanas.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Brigadas comunitárias</strong> – Formar e equipar brigadas
-            locais para prevenção e combate a incêndios descontrolados.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Sistemas de alerta precoce</strong> – Desenvolver
-            tecnologias para detecção rápida de focos de incêndio, permitindo
-            ação imediata.
-          </li>
-        </ul>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Criação e ampliação de áreas protegidas
+                </h4>
+                <p className="text-amber-100">
+                  Apoiar a expansão de áreas protegidas nas savanas globais, que
+                  estão entre os biomas menos protegidos do mundo.
+                </p>
+              </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          3. Uso Sustentável
-        </h3>
-        <ul className="bg-orange-100 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Práticas agrícolas sustentáveis</strong> – Promover técnicas
-            que permitam a produção de alimentos com menor impacto sobre as
-            savanas nativas.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Extrativismo sustentável</strong> – Apoiar a coleta e
-            comercialização de produtos não-madeireiros das savanas, gerando
-            renda para comunidades locais.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Turismo ecológico</strong> – Desenvolver roteiros de
-            observação de vida selvagem que valorizem as savanas e gerem
-            recursos para sua conservação.
-          </li>
-        </ul>
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Corredores ecológicos
+                </h4>
+                <p className="text-amber-100">
+                  Estabelecer conexões entre fragmentos de savanas para permitir
+                  o deslocamento de tamanduás-bandeira e outras espécies de
+                  amplo território.
+                </p>
+              </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          4. Pesquisa e Monitoramento
-        </h3>
-        <ul className="bg-orange-100 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Estudos ecológicos</strong> – Apoiar pesquisas sobre a
-            ecologia das savanas e o papel do tamanduá-bandeira como
-            espécie-chave.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Monitoramento por satélite</strong> – Utilizar imagens de
-            satélite para acompanhar mudanças na cobertura vegetal das savanas e
-            identificar áreas prioritárias para conservação.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Ciência do solo</strong> – Investigar o potencial das
-            savanas para sequestro de carbono e mitigação das mudanças
-            climáticas.
-          </li>
-        </ul>
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Monitoramento de populações
+                </h4>
+                <p className="text-amber-100">
+                  Acompanhar o status das populações de tamanduás-bandeira
+                  através de tecnologias como armadilhas fotográficas e
+                  rastreamento.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <h3 className="text-3xl md:text-4xl font-semibold mt-10">
-          5. Educação e Conscientização
-        </h3>
-        <ul className="bg-orange-100 p-5 rounded-lg mt-5">
-          <li className="text-xl md:text-2xl">
-            <strong>Programas educativos</strong> – Desenvolver materiais sobre
-            a importância das savanas e do tamanduá-bandeira para escolas e
-            comunidades.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Campanhas de sensibilização</strong> – Aumentar o
-            conhecimento público sobre o valor das savanas, frequentemente
-            subestimadas em comparação com florestas.
-          </li>
-          <li className="text-xl md:text-2xl mt-5">
-            <strong>Engajamento comunitário</strong> – Envolver comunidades
-            locais na conservação das savanas, valorizando seu conhecimento
-            tradicional e promovendo sua participação nas decisões de manejo.
-          </li>
-        </ul>
+          {/* Manejo Integrado do Fogo */}
+          <div
+            ref={el => (contentRefs.current[1] = el)}
+            className="opacity-0 transition-all duration-1000 transform translate-y-8"
+          >
+            <div className="flex items-center mb-6">
+              <div className="bg-amber-600 p-3 rounded-lg mr-4">
+                <FaFire className="text-amber-100 text-2xl" />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Manejo Integrado do Fogo
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Queimadas prescritas
+                </h4>
+                <p className="text-amber-100">
+                  Implementar técnicas de queima controlada em épocas adequadas,
+                  respeitando o papel ecológico do fogo nas savanas.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Brigadas comunitárias
+                </h4>
+                <p className="text-amber-100">
+                  Formar e equipar brigadas locais para prevenção e combate a
+                  incêndios descontrolados.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Sistemas de alerta precoce
+                </h4>
+                <p className="text-amber-100">
+                  Desenvolver tecnologias para detecção rápida de focos de
+                  incêndio, permitindo ação imediata.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Uso Sustentável */}
+          <div
+            ref={el => (contentRefs.current[2] = el)}
+            className="opacity-0 transition-all duration-1000 transform translate-y-8"
+          >
+            <div className="flex items-center mb-6">
+              <div className="bg-amber-600 p-3 rounded-lg mr-4">
+                <FaRecycle className="text-amber-100 text-2xl" />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Uso Sustentável
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Práticas agrícolas sustentáveis
+                </h4>
+                <p className="text-amber-100">
+                  Promover técnicas que permitam a produção de alimentos com
+                  menor impacto sobre as savanas nativas.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Extrativismo sustentável
+                </h4>
+                <p className="text-amber-100">
+                  Apoiar a coleta e comercialização de produtos não-madeireiros
+                  das savanas, gerando renda para comunidades locais.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Turismo ecológico
+                </h4>
+                <p className="text-amber-100">
+                  Desenvolver roteiros de observação de vida selvagem que
+                  valorizem as savanas e gerem recursos para sua conservação.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pesquisa e Monitoramento */}
+          <div
+            ref={el => (contentRefs.current[3] = el)}
+            className="opacity-0 transition-all duration-1000 transform translate-y-8"
+          >
+            <div className="flex items-center mb-6">
+              <div className="bg-amber-600 p-3 rounded-lg mr-4">
+                <FaSearch className="text-amber-100 text-2xl" />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Pesquisa e Monitoramento
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Estudos ecológicos
+                </h4>
+                <p className="text-amber-100">
+                  Apoiar pesquisas sobre a ecologia das savanas e o papel do
+                  tamanduá-bandeira como espécie-chave.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Monitoramento por satélite
+                </h4>
+                <p className="text-amber-100">
+                  Utilizar imagens de satélite para acompanhar mudanças na
+                  cobertura vegetal das savanas e identificar áreas prioritárias
+                  para conservação.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Ciência do solo
+                </h4>
+                <p className="text-amber-100">
+                  Investigar o potencial das savanas para sequestro de carbono e
+                  mitigação das mudanças climáticas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Educação e Conscientização */}
+          <div
+            ref={el => (contentRefs.current[4] = el)}
+            className="opacity-0 transition-all duration-1000 transform translate-y-8"
+          >
+            <div className="flex items-center mb-6">
+              <div className="bg-amber-600 p-3 rounded-lg mr-4">
+                <FaGraduationCap className="text-amber-100 text-2xl" />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold">
+                Educação e Conscientização
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Programas educativos
+                </h4>
+                <p className="text-amber-100">
+                  Desenvolver materiais sobre a importância das savanas e do
+                  tamanduá-bandeira para escolas e comunidades.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Campanhas de sensibilização
+                </h4>
+                <p className="text-amber-100">
+                  Aumentar o conhecimento público sobre o valor das savanas,
+                  frequentemente subestimadas em comparação com florestas.
+                </p>
+              </div>
+
+              <div className="bg-amber-800/30 p-6 rounded-xl border border-amber-700/30 hover:bg-amber-800/50 transition-colors duration-300">
+                <h4 className="text-xl md:text-2xl font-semibold mb-3 text-amber-300">
+                  Engajamento comunitário
+                </h4>
+                <p className="text-amber-100">
+                  Envolver comunidades locais na conservação das savanas,
+                  valorizando seu conhecimento tradicional e promovendo sua
+                  participação nas decisões de manejo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
