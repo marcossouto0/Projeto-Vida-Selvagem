@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useMemo } from 'react'
 import {
   FaGraduationCap,
   FaHandsHelping,
@@ -12,7 +12,14 @@ import {
 export default function Actions() {
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
-  const actionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]
+  const actionRef0 = useRef(null)
+  const actionRef1 = useRef(null)
+  const actionRef2 = useRef(null)
+  const actionRef3 = useRef(null)
+  const actionRefs = useMemo(
+    () => [actionRef0, actionRef1, actionRef2, actionRef3],
+    []
+  )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,7 +43,7 @@ export default function Actions() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [actionRefs])
 
   return (
     <div

@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useMemo } from 'react'
 import {
   FaWater,
   FaMapMarkedAlt,
@@ -15,7 +15,14 @@ export default function Biome() {
   const titleRef = useRef(null)
   const descriptionRef = useRef(null)
   const imageRef = useRef(null)
-  const contentRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]
+  const contentRef0 = useRef(null)
+  const contentRef1 = useRef(null)
+  const contentRef2 = useRef(null)
+  const contentRef3 = useRef(null)
+  const contentRefs = useMemo(
+    () => [contentRef0, contentRef1, contentRef2, contentRef3],
+    []
+  )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,7 +48,7 @@ export default function Biome() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [contentRefs])
 
   return (
     <div

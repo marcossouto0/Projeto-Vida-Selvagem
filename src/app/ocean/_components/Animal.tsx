@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useMemo } from 'react'
 import { FaPaw, FaSnowflake, FaExclamationTriangle } from 'react-icons/fa'
 
 export default function Animal() {
@@ -10,7 +10,13 @@ export default function Animal() {
   const titleRef = useRef(null)
   const descriptionRef = useRef(null)
   const imageRef = useRef(null)
-  const contentRefs = [useRef(null), useRef(null), useRef(null)]
+  const contentRef0 = useRef(null)
+  const contentRef1 = useRef(null)
+  const contentRef2 = useRef(null)
+  const contentRefs = useMemo(
+    () => [contentRef0, contentRef1, contentRef2],
+    []
+  )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,7 +47,7 @@ export default function Animal() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [contentRefs])
 
   return (
     <div

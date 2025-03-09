@@ -13,9 +13,7 @@ import {
 export default function Animal() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
-  const contentRefs = Array(5)
-    .fill(0)
-    .map(() => useRef(null))
+  const contentRefs = useRef(Array(5).fill(null))
 
   useEffect(() => {
     setIsVisible(true)
@@ -33,9 +31,11 @@ export default function Animal() {
       { threshold: 0.1 }
     )
 
-    contentRefs.forEach(ref => {
-      if (ref.current) observer.observe(ref.current)
-    })
+    if (contentRefs.current) {
+      contentRefs.current.forEach((ref: React.RefObject<HTMLElement> | null) => {
+        if (ref && ref.current) observer.observe(ref.current)
+      })
+    }
 
     return () => {
       observer.disconnect()
@@ -69,7 +69,7 @@ export default function Animal() {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center mb-20">
           <div
             className="xl:order-2 relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500"
-            ref={contentRefs[0]}
+            ref={contentRefs.current[0]}
           >
             <Image
               src="/bison.jpg"
@@ -87,7 +87,7 @@ export default function Animal() {
           </div>
 
           <div
-            ref={contentRefs[1]}
+            ref={contentRefs.current[1]}
             className="flex flex-col justify-around gap-8 opacity-0 transition-all duration-1000"
           >
             <div>
@@ -135,7 +135,7 @@ export default function Animal() {
         </div>
 
         <div
-          ref={contentRefs[2]}
+          ref={contentRefs.current[2]}
           className="bg-yellow-900/30 p-8 rounded-xl shadow-xl mb-20 opacity-0 transition-all duration-1000"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
@@ -164,8 +164,9 @@ export default function Animal() {
             <div className="bg-yellow-800/50 p-5 rounded-lg border border-yellow-700/50 hover:bg-yellow-800/70 transition-all duration-300">
               <h4 className="font-bold text-xl mb-3">Papel Ecológico</h4>
               <p className="text-yellow-100">
-                São "engenheiros do ecossistema", moldando a paisagem através do
-                pastoreio, criando habitats diversos para outras espécies.
+                São &quot;engenheiros do ecossistema&quot;, moldando a paisagem
+                através do pastoreio, criando habitats diversos para outras
+                espécies.
               </p>
             </div>
           </div>
@@ -179,7 +180,7 @@ export default function Animal() {
         </div>
 
         <div
-          ref={contentRefs[3]}
+          ref={contentRefs.current[3]}
           className="mb-20 opacity-0 transition-all duration-1000"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
@@ -227,7 +228,7 @@ export default function Animal() {
         </div>
 
         <div
-          ref={contentRefs[4]}
+          ref={contentRefs.current[4]}
           className="bg-yellow-900/50 p-8 rounded-xl shadow-xl opacity-0 transition-all duration-1000"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">

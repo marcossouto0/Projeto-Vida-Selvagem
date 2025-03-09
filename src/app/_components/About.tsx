@@ -28,10 +28,7 @@ export default function About() {
     if (teamRef.current) observer.observe(teamRef.current)
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current)
-      if (missionRef.current) observer.unobserve(missionRef.current)
-      if (historyRef.current) observer.unobserve(historyRef.current)
-      if (teamRef.current) observer.unobserve(teamRef.current)
+      observer.disconnect()
     }
   }, [])
 

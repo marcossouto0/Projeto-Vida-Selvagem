@@ -33,11 +33,7 @@ export default function Biome() {
     })
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current)
-
-      contentRefs.current.forEach(ref => {
-        if (ref) observer.unobserve(ref)
-      })
+      observer.disconnect()
     }
   }, [])
 

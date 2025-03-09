@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useMemo } from 'react'
 import {
   FaSeedling,
   FaLeaf,
@@ -13,11 +13,18 @@ export default function Actions() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
   const titleRef = useRef(null)
-  const actionRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)]
+  const actionRef0 = useRef(null)
+  const actionRef1 = useRef(null)
+  const actionRef2 = useRef(null)
+  const actionRef3 = useRef(null)
+  const actionRef4 = useRef(null)
+  const actionRefs = useMemo(
+    () => [actionRef0, actionRef1, actionRef2, actionRef3, actionRef4],
+    []
+  )
 
   useEffect(() => {
     setIsVisible(true)
-
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -39,7 +46,7 @@ export default function Actions() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [actionRefs])
 
   return (
     <div

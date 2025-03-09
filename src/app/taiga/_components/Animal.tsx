@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useMemo } from 'react'
 import {
   FaPaw,
   FaTree,
@@ -16,17 +16,30 @@ export default function Animal() {
   const titleRef = useRef(null)
   const descriptionRef = useRef(null)
   const imageRef = useRef(null)
-  const contentRefs = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null)
-  ]
+  const contentRef0 = useRef(null)
+  const contentRef1 = useRef(null)
+  const contentRef2 = useRef(null)
+  const contentRef3 = useRef(null)
+  const contentRef4 = useRef(null)
+  const contentRef5 = useRef(null)
+  const contentRef6 = useRef(null)
+  const contentRef7 = useRef(null)
+  const contentRef8 = useRef(null)
+
+  const contentRefs = useMemo(
+    () => [
+      contentRef0,
+      contentRef1,
+      contentRef2,
+      contentRef3,
+      contentRef4,
+      contentRef5,
+      contentRef6,
+      contentRef7,
+      contentRef8
+    ],
+    []
+  )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,7 +65,7 @@ export default function Animal() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [contentRefs])
 
   return (
     <div

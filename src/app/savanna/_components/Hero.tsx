@@ -29,15 +29,6 @@ export default function Hero() {
       <div className="relative z-10 mx-5 md:mx-15 lg:mx-30">
         <Navbar theme="savanna" showBackButton={true} />
 
-        {/* Breadcrumb navigation */}
-        {/* <div className="mt-8 flex items-center text-white/80">
-          <Link href="/" className="hover:text-white transition-colors">
-            Início
-          </Link>
-          <span className="mx-2">›</span>
-          <span className="font-medium">Savana</span>
-        </div> */}
-
         <div className="flex flex-col gap-8 h-[calc(100vh-200px)] justify-center">
           <div
             className={`transition-all duration-1000 transform ${

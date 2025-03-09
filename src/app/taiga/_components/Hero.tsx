@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import Navbar from '@/app/_components/Navbar'
 import { FaChevronDown, FaTree } from 'react-icons/fa'
-import Link from 'next/link'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)

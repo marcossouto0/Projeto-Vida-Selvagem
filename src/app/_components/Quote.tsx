@@ -31,7 +31,7 @@ export default function Quote() {
     if (quoteRef.current) observer.observe(quoteRef.current)
 
     return () => {
-      if (quoteRef.current) observer.unobserve(quoteRef.current)
+      observer.disconnect()
     }
   }, [])
 

@@ -32,11 +32,7 @@ export default function Animal() {
     })
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current)
-
-      contentRefs.current.forEach(ref => {
-        if (ref) observer.unobserve(ref)
-      })
+      observer.disconnect()
     }
   }, [])
 
@@ -64,7 +60,9 @@ export default function Animal() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div
-            ref={el => (contentRefs.current[0] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[0] = el;
+            }}
             className="order-2 lg:order-1 opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
@@ -79,8 +77,8 @@ export default function Animal() {
                 mamífero de grande porte, podendo atingir até 2,4 metros de
                 comprimento (incluindo a cauda) e pesar até 45 kg. Sua pelagem é
                 densa e áspera, com coloração cinza-amarelada e marcas pretas
-                características formando um "colete" no tronco e membros
-                dianteiros.
+                características formando um &quot;colete&quot; no tronco e
+                membros dianteiros.
               </p>
               <p className="text-lg text-amber-800 leading-relaxed">
                 Possui um focinho alongado e tubular, sem dentes, adaptado para
@@ -101,9 +99,10 @@ export default function Animal() {
               </div>
             </div>
           </div>
-
           <div
-            ref={el => (contentRefs.current[1] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[1] = el;
+            }}
             className="order-1 lg:order-2 relative rounded-xl overflow-hidden shadow-2xl opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <Image
@@ -124,7 +123,9 @@ export default function Animal() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           <div
-            ref={el => (contentRefs.current[2] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[2] = el;
+            }}
             className="bg-amber-300/50 rounded-xl p-6 shadow-lg border border-amber-400 opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <h3 className="text-2xl font-bold mb-4">Comportamento e Habitat</h3>
@@ -141,9 +142,10 @@ export default function Animal() {
               alimento.
             </p>
           </div>
-
           <div
-            ref={el => (contentRefs.current[3] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[3] = el;
+            }}
             className="bg-amber-300/50 rounded-xl p-6 shadow-lg border border-amber-400 opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <h3 className="text-2xl font-bold mb-4">Importância Ecológica</h3>
@@ -179,9 +181,10 @@ export default function Animal() {
               </li>
             </ul>
           </div>
-
           <div
-            ref={el => (contentRefs.current[4] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[4] = el;
+            }}
             className="bg-amber-300/50 rounded-xl p-6 shadow-lg border border-amber-400 opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <h3 className="text-2xl font-bold mb-4 flex items-center">

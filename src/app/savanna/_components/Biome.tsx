@@ -33,11 +33,7 @@ export default function Biome() {
     })
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current)
-
-      contentRefs.current.forEach(ref => {
-        if (ref) observer.unobserve(ref)
-      })
+      observer.disconnect()
     }
   }, [])
 
@@ -65,7 +61,9 @@ export default function Biome() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div
-            ref={el => (contentRefs.current[0] = el)}
+            ref={el => {
+              contentRefs.current[0] = el
+            }}
             className="relative rounded-xl overflow-hidden shadow-2xl opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <Image
@@ -84,7 +82,9 @@ export default function Biome() {
           </div>
 
           <div
-            ref={el => (contentRefs.current[1] = el)}
+            ref={el => {
+              contentRefs.current[1] = el
+            }}
             className="opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
@@ -111,7 +111,9 @@ export default function Biome() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           <div
-            ref={el => (contentRefs.current[2] = el)}
+            ref={el => {
+              contentRefs.current[2] = el
+            }}
             className="bg-amber-800/50 rounded-xl p-6 shadow-lg border border-amber-700/30 opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="bg-amber-600 p-3 rounded-lg inline-flex mb-4">
@@ -143,7 +145,9 @@ export default function Biome() {
           </div>
 
           <div
-            ref={el => (contentRefs.current[3] = el)}
+            ref={el => {
+              contentRefs.current[3] = el
+            }}
             className="bg-amber-800/50 rounded-xl p-6 shadow-lg border border-amber-700/30 opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="bg-amber-600 p-3 rounded-lg inline-flex mb-4">
@@ -185,7 +189,9 @@ export default function Biome() {
           </div>
 
           <div
-            ref={el => (contentRefs.current[4] = el)}
+            ref={el => {
+              contentRefs.current[4] = el
+            }}
             className="bg-amber-800/50 rounded-xl p-6 shadow-lg border border-amber-700/30 opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="bg-amber-600 p-3 rounded-lg inline-flex mb-4">

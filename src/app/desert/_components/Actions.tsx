@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useMemo } from 'react'
 import {
   FaShieldAlt,
   FaBookOpen,
@@ -19,13 +19,11 @@ export default function Actions() {
   const actionRef2 = useRef(null)
   const actionRef3 = useRef(null)
   const actionRef4 = useRef(null)
-  const actionRefs = [
-    actionRef0,
-    actionRef1,
-    actionRef2,
-    actionRef3,
-    actionRef4
-  ]
+
+  const actionRefs = useMemo(
+    () => [actionRef0, actionRef1, actionRef2, actionRef3, actionRef4],
+    []
+  )
 
   useEffect(() => {
     setIsVisible(true)
@@ -51,7 +49,7 @@ export default function Actions() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [actionRefs])
 
   return (
     <div

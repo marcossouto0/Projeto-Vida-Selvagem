@@ -32,11 +32,7 @@ export default function Actions() {
     })
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current)
-
-      contentRefs.current.forEach(ref => {
-        if (ref) observer.unobserve(ref)
-      })
+      observer.disconnect()
     }
   }, [])
 
@@ -59,7 +55,9 @@ export default function Actions() {
         <div className="space-y-16">
           {/* Conservação e Proteção */}
           <div
-            ref={el => (contentRefs.current[0] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[0] = el;
+            }}
             className="opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="flex items-center mb-6">
@@ -108,7 +106,9 @@ export default function Actions() {
 
           {/* Manejo Integrado do Fogo */}
           <div
-            ref={el => (contentRefs.current[1] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[1] = el;
+            }}
             className="opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="flex items-center mb-6">
@@ -155,7 +155,9 @@ export default function Actions() {
 
           {/* Uso Sustentável */}
           <div
-            ref={el => (contentRefs.current[2] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[2] = el;
+            }}
             className="opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="flex items-center mb-6">
@@ -202,7 +204,9 @@ export default function Actions() {
 
           {/* Pesquisa e Monitoramento */}
           <div
-            ref={el => (contentRefs.current[3] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[3] = el;
+            }}
             className="opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="flex items-center mb-6">
@@ -250,7 +254,9 @@ export default function Actions() {
 
           {/* Educação e Conscientização */}
           <div
-            ref={el => (contentRefs.current[4] = el)}
+            ref={(el: HTMLDivElement | null) => {
+              contentRefs.current[4] = el;
+            }}
             className="opacity-0 transition-all duration-1000 transform translate-y-8"
           >
             <div className="flex items-center mb-6">
