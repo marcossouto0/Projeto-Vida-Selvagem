@@ -149,7 +149,7 @@ export default function References() {
             </div>
             {searchTerm && filteredReferences.length === 0 && (
               <p className="text-blue-200 mt-2 text-sm">
-                Nenhuma referência encontrada para "{searchTerm}"
+                Nenhuma referência encontrada para &quot;{searchTerm}&quot;
               </p>
             )}
           </div>
