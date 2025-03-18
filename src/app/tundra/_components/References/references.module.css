@@ -1,0 +1,61 @@
+@reference "../../../globals.css";
+
+.refbgcolor {
+  @apply bg-gradient-to-b from-blue-900 via-blue-800 to-blue-900;
+}
+
+.separatorcolor {
+  @apply bg-blue-400;
+}
+
+.textcolor {
+  @apply text-blue-100;
+}
+
+.iconcolor {
+  @apply bg-blue-600 hover:bg-blue-500;
+}
+
+.titlecolor {
+  @apply text-white;
+}
+
+.inputcolor {
+  @apply bg-blue-800/50 border-blue-400/30 ring-blue-400;
+}
+
+.searchiconcolor {
+  @apply text-blue-300;
+}
+
+.noresultcolor {
+  @apply text-blue-200;
+}
+
+.cardcolor {
+  @apply bg-blue-800/30 border-blue-700/30 hover:border-blue-600/50;
+}
+
+.cardtitlecolor {
+  @apply text-blue-100;
+}
+
+.cardtextcolor {
+  @apply text-blue-200;
+}
+
+.cardurlcolor {
+  @apply text-blue-300;
+}
+
+.buttonbgcolor {
+  @apply bg-blue-600 hover:bg-blue-500;
+}
+
+.notecolor {
+  @apply bg-blue-800/20 border-blue-700/30;
+}
+
+.notetextcolor {
+  @apply text-blue-200;
+}

@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import Navbar from '@/app/_components/Navbar'
 import { FaChevronDown, FaTree } from 'react-icons/fa'
+import heroData from '@/data/biomes/taiga/hero'
+import ScrollIndicator from '@/app/_components/ScrollIndicator'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -29,15 +31,6 @@ export default function Hero() {
       <div className="relative z-10 mx-5 md:mx-15 lg:mx-30">
         <Navbar theme="taiga" showBackButton={true} />
 
-        {/* Breadcrumb navigation */}
-        {/* <div className="mt-8 flex items-center text-white/80">
-          <Link href="/" className="hover:text-white transition-colors">
-            Início
-          </Link>
-          <span className="mx-2">›</span>
-          <span className="font-medium">Taiga</span>
-        </div> */}
-
         <div className="flex flex-col gap-8 h-[calc(100vh-200px)] justify-center">
           <div
             className={`transition-all duration-1000 transform ${
@@ -48,16 +41,14 @@ export default function Hero() {
           >
             <div className="inline-flex items-center bg-emerald-700/80 text-white px-4 py-2 rounded-full mb-4">
               <FaTree className="mr-2" />
-              <span className="font-medium">Bioma Boreal</span>
+              <span className="font-medium">{heroData.biome}</span>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-serif drop-shadow-lg">
-              Taiga: A Floresta <br className="hidden md:block" />
-              <span className="text-emerald-300">Boreal</span>
+              {heroData.title} <br className="hidden md:block" />
+              <span className="text-emerald-300">{heroData.subtitle}</span>
             </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mt-6 max-w-3xl drop-shadow-md leading-relaxed">
-              O lobo cinzento é um símbolo da taiga, mas a fragmentação de
-              habitat e a caça ilegal ameaçam sua sobrevivência. Conheça este
-              vasto bioma e como podemos protegê-lo.
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mt-6 max-w-3xl drop-shadow-md bg-gray-950/10 rounded-2xl p-1 leading-relaxed">
+              {heroData.description}
             </p>
           </div>
 
@@ -70,20 +61,17 @@ export default function Hero() {
           >
             <button
               onClick={scrollToContent}
-              className="group bg-emerald-700/80 hover:bg-emerald-600/90 text-white px-6 py-3 rounded-full flex items-center gap-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-emerald-900"
+              className="group bg-emerald-700/80 hover:bg-emerald-600/90 text-white px-6 py-3 rounded-full flex items-center gap-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-emerald-900 cursor-pointer"
               aria-label="Explorar o bioma Taiga"
             >
-              <span className="font-medium">Explorar Bioma</span>
+              <span className="font-medium">{heroData.buttonText}</span>
               <FaChevronDown className="transition-transform duration-300 group-hover:translate-y-1" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Animated scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <FaChevronDown className="text-white text-3xl" />
-      </div>
+      <ScrollIndicator scrollToContent={scrollToContent} biome="taiga" />
     </div>
   )
 }

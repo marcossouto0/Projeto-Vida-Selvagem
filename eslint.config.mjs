@@ -12,9 +12,7 @@ const compat = new FlatCompat({
 const eslintConfig = [
   {
     files: ["**/*.ts", "**/*.tsx"],
-    rules: {
-      "react-hooks/exhaustive-deps": "off"
-    }
+    rules: {}
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
