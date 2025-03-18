@@ -69,7 +69,7 @@ export default function Animal() {
     <div
       id="animal-section"
       ref={sectionRef}
-      className="bg-gradient-to-b from-emerald-900 via-emerald-800 to-emerald-950 text-white min-h-screen"
+      className="bg-gradient-to-b from-emerald-800 via-emerald-900 to-emerald-950 text-white min-h-screen"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto text-center mb-16">
