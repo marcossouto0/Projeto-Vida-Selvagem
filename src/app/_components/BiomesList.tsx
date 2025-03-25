@@ -41,7 +41,7 @@ export default function BiomesList() {
       animal: 'Lobo Cinzento',
       icon: '🌲',
       color: 'from-emerald-900 to-emerald-700',
-      available: false
+      available: true
     },
     {
       name: 'Floresta Temperada',
