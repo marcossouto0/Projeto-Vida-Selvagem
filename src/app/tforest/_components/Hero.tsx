@@ -1,8 +1,9 @@
 'use client'
 
 import Navbar from '@/app/_components/Navbar'
+import ScrollIndicator from '@/app/_components/ScrollIndicator'
 import { useState, useEffect } from 'react'
-import { FaChevronDown, FaTree } from 'react-icons/fa'
+import { FaTree } from 'react-icons/fa'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -78,20 +79,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div
-          className={`flex justify-center mb-8 transition-all duration-1000 delay-700 ${
-            isVisible ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <button
-            onClick={scrollToContent}
-            className="animate-bounce bg-white/10 hover:bg-white/20 rounded-full p-2 backdrop-blur-sm transition-colors"
-            aria-label="Rolar para baixo"
-          >
-            <FaChevronDown className="text-white text-xl" />
-          </button>
-        </div>
+        <ScrollIndicator scrollToContent={scrollToContent} biome='tforest' />
       </div>
     </div>
   )

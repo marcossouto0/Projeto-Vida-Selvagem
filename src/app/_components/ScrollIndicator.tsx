@@ -7,7 +7,7 @@ const hoverTheme = {
   eforest: 'group-hover:text-green-300',
   savanna: 'group-hover:text-orange-300',
   taiga: 'group-hover:text-emerald-300',
-  tforest: 'group-hover:text-blue-300',
+  tforest: 'group-hover:text-green-300',
   ocean: 'group-hover:text-blue-300',
   grasslands: 'group-hover:text-green-300',
 } as const

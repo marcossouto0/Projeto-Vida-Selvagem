@@ -47,7 +47,7 @@ export default function Actions() {
 
   return (
     <div
-      className="bg-gradient-to-b from-green-100 to-green-200 py-16 md:py-24"
+      className="bg-gradient-to-b from-green-950 to-green-800 py-16 md:py-24"
       ref={sectionRef}
     >
       <div className="container mx-auto px-5 md:px-15 lg:px-30">
@@ -57,12 +57,12 @@ export default function Actions() {
           </div>
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl font-bold mb-6 text-green-800 opacity-0 transition-opacity duration-1000"
+            className="text-4xl md:text-5xl font-bold mb-6 text-green-100 opacity-0 transition-opacity duration-1000"
           >
             Nossas Ações
           </h2>
           <div className="w-24 h-1 bg-green-500 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl md:text-2xl text-green-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-green-100 max-w-4xl mx-auto leading-relaxed">
             Conheça as iniciativas para proteger as florestas temperadas e
             preservar sua biodiversidade.
           </p>
@@ -71,7 +71,7 @@ export default function Actions() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div
             ref={actionRefs[0]}
-            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition-[opacity,transform,box-shadow] duration-300 hover:shadow-2xl hover:-translate-y-1"
+            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition duration-300 hover:shadow-2xl hover:-translate-y-1"
           >
             <div className="bg-green-700 p-3 rounded-lg inline-flex mb-6">
               <FaHandsHelping className="text-green-100 text-2xl" />
@@ -115,7 +115,7 @@ export default function Actions() {
 
           <div
             ref={actionRefs[1]}
-            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition-[opacity,transform,box-shadow] duration-300 hover:shadow-2xl hover:-translate-y-1"
+            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition duration-300 hover:shadow-2xl hover:-translate-y-1"
           >
             <div className="bg-green-700 p-3 rounded-lg inline-flex mb-6">
               <FaGraduationCap className="text-green-100 text-2xl" />
@@ -159,7 +159,7 @@ export default function Actions() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div
             ref={actionRefs[2]}
-            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition-[opacity,transform,box-shadow] duration-300 hover:shadow-2xl hover:-translate-y-1"
+            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition duration-300 hover:shadow-2xl hover:-translate-y-1"
           >
             <div className="bg-green-700 p-3 rounded-lg inline-flex mb-6">
               <FaSeedling className="text-green-100 text-2xl" />
@@ -199,7 +199,7 @@ export default function Actions() {
 
           <div
             ref={actionRefs[3]}
-            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition-[opacity,transform,box-shadow] duration-300 hover:shadow-2xl hover:-translate-y-1"
+            className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition duration-300 hover:shadow-2xl hover:-translate-y-1"
           >
             <div className="bg-green-700 p-3 rounded-lg inline-flex mb-6">
               <FaUsers className="text-green-100 text-2xl" />

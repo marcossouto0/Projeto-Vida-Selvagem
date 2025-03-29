@@ -1,0 +1,60 @@
+@reference "../../../globals.css";
+
+.refbgcolor {
+  @apply bg-gradient-to-b from-green-800 to-green-950;
+}
+.separatorcolor {
+  @apply bg-green-400;
+}
+
+.textcolor {
+  @apply text-green-100;
+}
+
+.iconcolor {
+  @apply bg-green-400 hover:bg-green-300;
+}
+
+.titlecolor {
+  @apply text-white;
+}
+
+.inputcolor {
+  @apply bg-green-800/50 border-green-400/30 ring-green-400;
+}
+
+.searchiconcolor {
+  @apply text-green-300;
+}
+
+.noresultcolor {
+  @apply text-green-200;
+}
+
+.cardcolor {
+  @apply bg-green-800/30 border-green-700/30 hover:border-green-600/50 hover:shadow-green-400/20;
+}
+
+.cardtitlecolor {
+  @apply text-green-100;
+}
+
+.cardtextcolor {
+  @apply text-green-200;
+}
+
+.cardurlcolor {
+  @apply text-green-300;
+}
+
+.buttonbgcolor {
+  @apply bg-green-600 hover:bg-green-500;
+}
+
+.notecolor {
+  @apply bg-green-800/20 border-green-700/30;
+}
+
+.notetextcolor {
+  @apply text-green-200;
+}
