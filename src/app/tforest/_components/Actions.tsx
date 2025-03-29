@@ -68,7 +68,7 @@ export default function Actions() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 md:mb-16">
           <div
             ref={actionRefs[0]}
             className="bg-white rounded-xl p-8 shadow-lg border border-green-200 opacity-0 transform translate-y-8 transition duration-300 hover:shadow-2xl hover:-translate-y-1"
