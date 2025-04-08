@@ -52,7 +52,7 @@ export default function BiomesList() {
       animal: 'Urso Pardo',
       icon: '🍂',
       color: 'from-green-800 to-green-600',
-      available: false
+      available: true
     },
     {
       name: 'Floresta Equatorial',
