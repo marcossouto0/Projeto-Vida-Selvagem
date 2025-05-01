@@ -63,16 +63,16 @@ export default function Animal() {
             ref={titleRef}
             className="text-4xl md:text-5xl font-bold mb-6 opacity-0 transition-opacity duration-1000"
           >
-            Onça Pintada: A Guardiã da Floresta
+            Jaguar: O Guardião da Floresta
           </h2>
           <div className="w-24 h-1 bg-emerald-500 mx-auto mb-8 rounded-full"></div>
           <p
             ref={descriptionRef}
             className="text-xl md:text-2xl text-emerald-100 max-w-4xl mx-auto leading-relaxed opacity-0 transition-opacity duration-1000"
           >
-            Poderosa e majestosa, a onça pintada é o maior felino das Américas e
-            um símbolo da saúde dos ecossistemas florestais. Mas o desmatamento
-            e a caça ilegal ameaçam sua sobrevivência.
+            Poderoso e majestoso, o jaguar é o maior felino das Américas e um
+            símbolo da saúde dos ecossistemas florestais. Mas o desmatamento e a
+            caça ilegal ameaçam sua sobrevivência.
           </p>
         </div>
 
@@ -83,14 +83,14 @@ export default function Animal() {
           >
             <Image
               src="/jaguar.jpg"
-              alt="Onça pintada em seu habitat natural na floresta equatorial"
+              alt="Jaguar em seu habitat natural na floresta equatorial"
               width={600}
               height={450}
               className="w-full h-auto object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
               <p className="text-white/90 p-4 text-sm italic">
-                Onça pintada observando atentamente seu território na floresta
+                Jaguar observando atentamente seu território na floresta
                 amazônica
               </p>
             </div>
@@ -110,8 +110,8 @@ export default function Animal() {
               <li className="flex items-start">
                 <span className="text-emerald-400 mr-2 mt-1">•</span>
                 <span>
-                  <strong>Tamanho:</strong> O maior felino das Américas, pesando
-                  entre 60 e 120 kg e medindo até 1,85m de comprimento
+                  <strong>Tamanho:</strong> O maior felino das Américas,
+                  pesando entre 60 e 120 kg e medindo até 1,85m de comprimento
                 </span>
               </li>
               <li className="flex items-start">
@@ -124,7 +124,7 @@ export default function Animal() {
               <li className="flex items-start">
                 <span className="text-emerald-400 mr-2 mt-1">•</span>
                 <span>
-                  <strong>Habilidades:</strong> Excelente nadadora e escaladora,
+                  <strong>Habilidades:</strong> Excelente nadador e escalador,
                   com mandíbulas poderosas capazes de perfurar crânios de presas
                 </span>
               </li>
@@ -142,7 +142,7 @@ export default function Animal() {
             </div>
             <h3 className="text-2xl font-bold mb-4">Papel Ecológico</h3>
             <p className="text-lg text-emerald-100 leading-relaxed mb-4">
-              A onça pintada é um predador de topo que regula as populações de
+              O jaguar é um predador de topo que regula as populações de
               espécies herbívoras e onívoras, mantendo o equilíbrio dos
               ecossistemas florestais.
             </p>
@@ -173,7 +173,7 @@ export default function Animal() {
               <li className="flex items-start">
                 <span className="text-emerald-400 mr-2 mt-1">•</span>
                 <span>
-                  <strong>Caça ilegal:</strong> Perseguida por sua pele ou em
+                  <strong>Caça ilegal:</strong> Perseguido por sua pele ou em
                   retaliação a ataques ao gado
                 </span>
               </li>
@@ -192,11 +192,11 @@ export default function Animal() {
         <div className="bg-emerald-800/30 p-8 rounded-xl shadow-lg">
           <h3 className="text-2xl font-bold mb-4 text-center">Você Sabia?</h3>
           <p className="text-lg text-emerald-100 leading-relaxed text-center mb-0">
-            O nome científico da onça pintada, <em>Panthera onca</em>, vem do
+            O nome científico do jaguar, <em>Panthera onca</em>, vem do
             tupi-guarani &quot;yaguara&quot;, que significa &quot;fera que
-            mata com um salto&quot;. Diferente de outros grandes felinos, a onça
-            mata suas presas perfurando o crânio com suas potentes mandíbulas,
-            em vez de sufocá-las.
+            mata com um salto&quot;. Diferente de outros grandes felinos, o
+            jaguar mata suas presas perfurando o crânio com suas potentes
+            mandíbulas, em vez de sufocá-las.
           </p>
         </div>
       </div>

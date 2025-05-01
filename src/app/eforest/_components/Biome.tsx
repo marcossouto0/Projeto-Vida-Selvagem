@@ -218,7 +218,7 @@ export default function Biome() {
         <div className="bg-emerald-800/30 p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
           <h3 className="text-2xl font-bold mb-4 text-center">Você Sabia?</h3>
           <p className="text-lg text-emerald-100 leading-relaxed text-center mb-0">
-            A Floresta Amazônica produz cerca de 20% do oxigênio do planeta e
+            A Floresta Amazônica é responsável por cerca de 20% do oxigênio gerado pelas plantas no planeta e
             contém 20% da água doce não congelada da Terra. É chamada de
             &quot;farmácia viva&quot; porque muitos medicamentos modernos
             derivam de suas plantas.

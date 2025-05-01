@@ -64,7 +64,7 @@ export default function Hero() {
               <span className="block mt-2">O Pulmão do Planeta</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mt-6 leading-relaxed">
-              A onça pintada é a guardiã das florestas equatoriais, mas o
+              O jaguar é o guardião das florestas equatoriais, mas o
               desmatamento e as mudanças climáticas ameaçam seu habitat. Conheça
               esse bioma e como podemos protegê-lo.
             </p>

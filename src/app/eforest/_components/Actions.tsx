@@ -45,7 +45,7 @@ export default function Actions() {
 
   return (
     <div
-      className="bg-gradient-to-b from-emerald-100 to-emerald-200 py-16 md:py-24"
+      className="bg-gradient-to-b from-emerald-950 to-emerald-800 py-16 md:py-24"
       ref={sectionRef}
     >
       <div className="container mx-auto px-5 md:px-15 lg:px-30">
@@ -55,12 +55,12 @@ export default function Actions() {
           </div>
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl font-bold mb-6 text-emerald-800 opacity-0 transition-opacity duration-1000"
+            className="text-4xl md:text-5xl font-bold mb-6 text-white opacity-0 transition-opacity duration-1000"
           >
             Nossas Ações
           </h2>
           <div className="w-24 h-1 bg-emerald-500 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl md:text-2xl text-emerald-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
             Conheça as iniciativas para proteger as florestas equatoriais e suas
             espécies, incluindo a onça pintada.
           </p>

@@ -1,0 +1,60 @@
+@reference "../../../globals.css";
+
+.refbgcolor {
+  @apply bg-gradient-to-b from-emerald-800 to-emerald-950;
+}
+.separatorcolor {
+  @apply bg-emerald-400;
+}
+
+.textcolor {
+  @apply text-emerald-100;
+}
+
+.iconcolor {
+  @apply bg-emerald-400 hover:bg-emerald-300;
+}
+
+.titlecolor {
+  @apply text-white;
+}
+
+.inputcolor {
+  @apply bg-emerald-800/50 border-emerald-400/30 ring-emerald-400;
+}
+
+.searchiconcolor {
+  @apply text-emerald-300;
+}
+
+.noresultcolor {
+  @apply text-emerald-200;
+}
+
+.cardcolor {
+  @apply bg-emerald-800/30 border-emerald-700/30 hover:border-emerald-600/50 hover:shadow-emerald-400/20;
+}
+
+.cardtitlecolor {
+  @apply text-emerald-100;
+}
+
+.cardtextcolor {
+  @apply text-emerald-200;
+}
+
+.cardurlcolor {
+  @apply text-emerald-300;
+}
+
+.buttonbgcolor {
+  @apply bg-emerald-600 hover:bg-emerald-500;
+}
+
+.notecolor {
+  @apply bg-emerald-800/20 border-emerald-700/30;
+}
+
+.notetextcolor {
+  @apply text-emerald-200;
+}

@@ -60,10 +60,10 @@ export default function BiomesList() {
       image: '/eforest.jpg',
       description:
         'O berço da biodiversidade, com alta temperatura e umidade durante todo o ano, abrigando milhões de espécies.',
-      animal: 'Onça Pintada',
+      animal: 'Jaguar',
       icon: '🌴',
       color: 'from-green-900 to-green-700',
-      available: false
+      available: true
     },
     {
       name: 'Campos',
@@ -82,7 +82,7 @@ export default function BiomesList() {
       image: '/savanna.jpg',
       description:
         'Ecossistema tropical caracterizado por uma mistura de árvores esparsas e extensas áreas de gramíneas, com estações secas e chuvosas bem definidas.',
-      animal: 'Tamanduá-Bandeira',
+      animal: 'Canguru',
       icon: '🌵',
       color: 'from-amber-800 to-amber-600',
       available: false
