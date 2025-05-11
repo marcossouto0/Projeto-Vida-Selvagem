@@ -39,7 +39,7 @@ export default function Actions() {
   return (
     <div
       ref={sectionRef}
-      className="bg-gradient-to-b from-amber-950 to-amber-900 text-white py-16 md:py-24 opacity-0 transition-opacity duration-1000"
+      className="bg-gradient-to-b from-amber-950 to-amber-800 text-white py-16 md:py-24 opacity-0 transition-opacity duration-1000"
     >
       <div className="container mx-auto px-5 md:px-15 lg:px-30">
         <div className="text-center mb-16">

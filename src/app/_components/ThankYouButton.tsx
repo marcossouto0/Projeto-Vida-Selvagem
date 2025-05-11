@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import { usePathname } from 'next/navigation'
+import confetti from 'canvas-confetti'
 
 // Biome theme definitions
 interface BiomeTheme {
@@ -10,6 +11,7 @@ interface BiomeTheme {
   bgColorClass: string
   accentColorClass: string
   textColorClass?: string
+  bgGradientClass?: string // Optional gradient class for background
 }
 
 const BIOME_THEMES: Record<string, BiomeTheme> = {
@@ -26,6 +28,7 @@ const BIOME_THEMES: Record<string, BiomeTheme> = {
   '/savanna': {
     colorClass: 'from-amber-800 to-amber-600',
     bgColorClass: 'bg-amber-50',
+    bgGradientClass: 'bg-gradient-to-b from-amber-900 to-amber-800',
     accentColorClass: 'text-amber-700'
   },
   '/tundra': {
@@ -60,7 +63,8 @@ const DEFAULT_THEME = {
   colorClass: 'from-blue-600 to-blue-400',
   bgColorClass: 'bg-blue-50',
   accentColorClass: 'text-blue-500',
-  textColorClass: 'text-white'
+  textColorClass: 'text-white',
+  bgGradientClass: 'bg-gradient-to-b' // Added missing property
 }
 
 interface ThankYouButtonProps {
@@ -96,11 +100,19 @@ export default function ThankYouButton({
   const accentColorClass = customAccentColorClass || biomeTheme.accentColorClass
   const textColorClass =
     customTextColorClass || biomeTheme.textColorClass || 'text-white'
+  const bgGradientClass = biomeTheme.bgGradientClass || 'bg-gradient-to-b'
 
   const openModal = () => {
     setIsModalOpen(true)
     // Prevent scrolling when modal is open
     document.body.style.overflow = 'hidden'
+
+    // Trigger confetti animation
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    })
   }
 
   const closeModal = () => {
@@ -110,7 +122,7 @@ export default function ThankYouButton({
   }
 
   return (
-    <>
+    <div className={`${bgGradientClass} py-16 md:py-24`}>
       <div className="w-full flex justify-center my-12">
         <button
           onClick={openModal}
@@ -162,6 +174,6 @@ export default function ThankYouButton({
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }

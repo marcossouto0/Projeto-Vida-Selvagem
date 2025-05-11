@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from '@/app/_components/Navbar'
 import { FaChevronDown, FaLeaf } from 'react-icons/fa'
+import ScrollIndicator from '@/app/_components/ScrollIndicator'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -46,9 +47,7 @@ export default function Hero() {
               <span className="text-amber-300">Tropicais</span>
             </h1>
             <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mt-6 max-w-3xl drop-shadow-md leading-relaxed">
-              O tamanduá-bandeira é um dos símbolos das savanas sul-americanas,
-              mas as queimadas e o desmatamento ameaçam sua sobrevivência.
-              Conheça esse bioma único e como podemos protegê-lo.
+              O canguru é um dos símbolos da savana australiana, mas a exploração
             </p>
           </div>
 
@@ -71,10 +70,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Animated scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <FaChevronDown className="text-white text-3xl" />
-      </div>
+      <ScrollIndicator biome='savanna' scrollToContent={scrollToContent} />
     </div>
   )
 }
