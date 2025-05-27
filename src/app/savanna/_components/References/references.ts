@@ -6,34 +6,34 @@ interface Reference {
 
 const references: Reference[] = [
   {
-    title: 'Floresta Equatorial - Wikipédia',
-    url: 'https://pt.wikipedia.org/wiki/Floresta_equatorial',
-    description: 'Características das florestas equatoriais, com foco no clima, biodiversidade e distribuição geográfica.'
+    title: 'Savana – Wikipédia',
+    url: 'https://pt.wikipedia.org/wiki/Savana',
+    description: 'Descrição detalhada sobre o bioma savana, incluindo clima, flora, fauna e distribuição geográfica.'
   },
   {
-    title: 'Amazônia - Wikipédia',
-    url: 'https://pt.wikipedia.org/wiki/Amaz%C3%B4nia',
-    description: 'Visão abrangente da Amazônia, incluindo ecossistema, importância ambiental e desafios de conservação.'
+    title: 'Canguru – Wikipédia',
+    url: 'https://pt.wikipedia.org/wiki/Canguru',
+    description: 'Informações detalhadas sobre o canguru, incluindo características físicas, reprodução e curiosidades.'
   },
   {
-    title: 'Onça-Pintada - Wikipédia',
-    url: 'https://pt.wikipedia.org/wiki/Panthera_onca',
-    description: 'Artigo detalhado sobre a onça-pintada, abordando habitat, comportamento e status de conservação.'
+    title: 'Cangurus: características, espécies, curiosidades - Mundo Educação',
+    url: 'https://mundoeducacao.uol.com.br/biologia/cangurus.htm',
+    description: 'Detalhes sobre anatomia, comportamento, hábitos alimentares e reprodução dos cangurus.'
   },
   {
-    title: 'Onças do Pantanal | Jaguar ID Project',
-    url: 'https://www.jaguaridproject.com/pt/pantanals-jaguars',
-    description: 'Dados sobre densidade populacional, comportamento e características biológicas das onças-pintadas no Pantanal.'
+    title: 'Canguru: características, habitat, espécies, curiosidades - Biologia Net',
+    url: 'https://www.biologianet.com/biodiversidade/canguru.htm',
+    description: 'Informações sobre tamanho, peso, habitat e curiosidades sobre os cangurus.'
   },
   {
-    title: 'Jaguar | World Wildlife Fund',
-    url: 'https://www.worldwildlife.org/species/jaguar',
-    description: 'Informações sobre status de conservação, ecologia e iniciativas globais para proteção da espécie.'
+    title: 'Canguru-de-Bennett | Quinta do Seis Dedos',
+    url: 'https://quintaseisdedos.pt/home/case/canguru/',
+    description: 'Descrição detalhada do Canguru-de-Bennett, incluindo comportamento social, características físicas e ciclo de vida.'
   },
   {
-    title: '35 Interesting Facts About Jaguars',
-    url: 'https://thefactfile.org/jaguar-facts/',
-    description: 'Compilação detalhada sobre peculiaridades anatômicas, comportamentais e ecológicas do jaguar.'
+    title: 'Canguru-vermelho - Animália Park',
+    url: 'https://animaliapark.com.br/reserva/macropus-rufus/',
+    description: 'Informações sobre o maior canguru, suas características físicas, habilidades de salto e importância ecológica.'
   },
 ];
 

@@ -47,7 +47,9 @@ export default function Hero() {
               <span className="text-amber-300">Tropicais</span>
             </h1>
             <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mt-6 max-w-3xl drop-shadow-md leading-relaxed">
-              O canguru é um dos símbolos da savana australiana, mas a exploração
+              Explore as fascinantes savanas e descubra o universo surpreendente
+              dos cangurus — onde a natureza selvagem revela sua força,
+              diversidade e beleza única!
             </p>
           </div>
 
@@ -70,7 +72,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <ScrollIndicator biome='savanna' scrollToContent={scrollToContent} />
+      <ScrollIndicator biome="savanna" scrollToContent={scrollToContent} />
     </div>
   )
 }
