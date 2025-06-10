@@ -1,0 +1,60 @@
+@reference "../../../globals.css";
+
+.refbgcolor {
+  @apply bg-gradient-to-b from-amber-800 to-amber-950;
+}
+.separatorcolor {
+  @apply bg-amber-400;
+}
+
+.textcolor {
+  @apply text-amber-100;
+}
+
+.iconcolor {
+  @apply bg-amber-400 hover:bg-amber-300;
+}
+
+.titlecolor {
+  @apply text-white;
+}
+
+.inputcolor {
+  @apply bg-amber-800/50 border-amber-400/30 ring-amber-400;
+}
+
+.searchiconcolor {
+  @apply text-amber-300;
+}
+
+.noresultcolor {
+  @apply text-amber-200;
+}
+
+.cardcolor {
+  @apply bg-amber-800/30 border-amber-700/30 hover:border-amber-600/50 hover:shadow-amber-400/20;
+}
+
+.cardtitlecolor {
+  @apply text-amber-100;
+}
+
+.cardtextcolor {
+  @apply text-amber-200;
+}
+
+.cardurlcolor {
+  @apply text-amber-300;
+}
+
+.buttonbgcolor {
+  @apply bg-amber-600 hover:bg-amber-500;
+}
+
+.notecolor {
+  @apply bg-amber-800/20 border-amber-700/30;
+}
+
+.notetextcolor {
+  @apply text-amber-200;
+}

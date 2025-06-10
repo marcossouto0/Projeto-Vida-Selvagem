@@ -77,17 +77,6 @@ export default function BiomesList() {
       available: true
     },
     {
-      name: 'Campos',
-      path: '/grasslands',
-      image: '/grasslands.jpg',
-      description:
-        'Vastos ecossistemas dominados por gramíneas que cobrem cerca de 40% da superfície terrestre.',
-      animal: 'Bisão Americano',
-      icon: '🌾',
-      color: 'from-yellow-700 to-yellow-500',
-      available: false
-    },
-    {
       name: 'Deserto',
       path: '/desert',
       image: '/desert.jpg',
@@ -96,6 +85,17 @@ export default function BiomesList() {
       animal: 'Camelo',
       icon: '🏜️',
       color: 'from-orange-800 to-orange-600',
+      available: true
+    },
+    {
+      name: 'Campos',
+      path: '/grasslands',
+      image: '/grasslands.jpg',
+      description:
+        'Vastos ecossistemas dominados por gramíneas que cobrem cerca de 40% da superfície terrestre.',
+      animal: 'Bisão Americano',
+      icon: '🌾',
+      color: 'from-yellow-700 to-yellow-500',
       available: false
     },
     {
