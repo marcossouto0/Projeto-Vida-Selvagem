@@ -51,7 +51,7 @@ export default function Actions() {
   return (
     <div
       ref={sectionRef}
-      className={`bg-gradient-to-b from-yellow-200 to-yellow-300 py-16 md:py-24 transition-opacity duration-1000 ${
+      className={`bg-gradient-to-b from-yellow-700 to-yellow-800 py-16 md:py-24 transition-opacity duration-1000 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
@@ -62,12 +62,12 @@ export default function Actions() {
           </div>
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl font-bold mb-6 text-yellow-900 opacity-0 transition-opacity duration-1000"
+            className="text-4xl md:text-5xl font-bold mb-6 text-yellow-400 opacity-0 transition-opacity duration-1000"
           >
             Nossas Ações
           </h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-yellow-800">
+          <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-yellow-200">
             Trabalhamos para preservar os campos nativos e proteger a vida
             selvagem através de iniciativas sustentáveis que combinam
             conhecimento científico e sabedoria tradicional.
@@ -346,21 +346,6 @@ export default function Actions() {
               </ul>
             </div>
           </div>
-        </div>
-
-        <div className="bg-yellow-500/20 p-8 rounded-xl shadow-lg max-w-4xl mx-auto text-center border border-yellow-500/30">
-          <h3 className="text-2xl font-bold mb-4 text-yellow-800">
-            Faça Parte da Nossa Missão
-          </h3>
-          <p className="text-lg text-yellow-700 mb-6">
-            Juntos, podemos restaurar os vastos campos que um dia dominaram a
-            paisagem e as espécies emblemáticas que os habitavam. Cada ação
-            conta para a preservação deste ecossistema vital para o equilíbrio
-            do planeta.
-          </p>
-          <button className="px-8 py-3 bg-yellow-600 text-white font-semibold rounded-full hover:bg-yellow-700 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">
-            Quero Participar
-          </button>
         </div>
       </div>
     </div>

@@ -1,0 +1,60 @@
+@reference "../../../globals.css";
+
+.refbgcolor {
+  @apply bg-gradient-to-b from-yellow-800 to-yellow-950;
+}
+.separatorcolor {
+  @apply bg-yellow-400;
+}
+
+.textcolor {
+  @apply text-yellow-100;
+}
+
+.iconcolor {
+  @apply bg-yellow-400 hover:bg-yellow-300;
+}
+
+.titlecolor {
+  @apply text-white;
+}
+
+.inputcolor {
+  @apply bg-yellow-800/50 border-yellow-400/30 ring-yellow-400;
+}
+
+.searchiconcolor {
+  @apply text-yellow-300;
+}
+
+.noresultcolor {
+  @apply text-yellow-200;
+}
+
+.cardcolor {
+  @apply bg-yellow-800/30 border-yellow-700/30 hover:border-yellow-600/50 hover:shadow-yellow-400/20;
+}
+
+.cardtitlecolor {
+  @apply text-yellow-100;
+}
+
+.cardtextcolor {
+  @apply text-yellow-200;
+}
+
+.cardurlcolor {
+  @apply text-yellow-300;
+}
+
+.buttonbgcolor {
+  @apply bg-yellow-600 hover:bg-yellow-500;
+}
+
+.notecolor {
+  @apply bg-yellow-800/20 border-yellow-700/30;
+}
+
+.notetextcolor {
+  @apply text-yellow-200;
+}

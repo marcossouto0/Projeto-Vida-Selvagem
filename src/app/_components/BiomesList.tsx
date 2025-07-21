@@ -96,7 +96,7 @@ export default function BiomesList() {
       animal: 'Bisão Americano',
       icon: '🌾',
       color: 'from-yellow-700 to-yellow-500',
-      available: false
+      available: true
     },
     {
       name: 'Oceano',

@@ -88,7 +88,7 @@ export default function Animal() {
 
           <div
             ref={contentRefs.current[1]}
-            className="flex flex-col justify-around gap-8 opacity-0 transition-all duration-1000"
+            className="flex flex-col justify-around gap-8 transition-all duration-1000"
           >
             <div>
               <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
@@ -136,7 +136,7 @@ export default function Animal() {
 
         <div
           ref={contentRefs.current[2]}
-          className="bg-yellow-900/30 p-8 rounded-xl shadow-xl mb-20 opacity-0 transition-all duration-1000"
+          className="bg-yellow-900/30 p-8 rounded-xl shadow-xl mb-20 transition-all duration-1000"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
             <span className="bg-yellow-600 p-2 rounded-lg mr-3 inline-flex">
@@ -181,7 +181,7 @@ export default function Animal() {
 
         <div
           ref={contentRefs.current[3]}
-          className="mb-20 opacity-0 transition-all duration-1000"
+          className="mb-20 transition-all duration-1000"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-8 flex items-center justify-center">
             <span className="bg-yellow-600 p-2 rounded-lg mr-3 inline-flex">
@@ -229,7 +229,7 @@ export default function Animal() {
 
         <div
           ref={contentRefs.current[4]}
-          className="bg-yellow-900/50 p-8 rounded-xl shadow-xl opacity-0 transition-all duration-1000"
+          className="bg-yellow-900/50 p-8 rounded-xl shadow-xl transition-all duration-1000"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center">
             <span className="bg-yellow-600 p-2 rounded-lg mr-3 inline-flex">
