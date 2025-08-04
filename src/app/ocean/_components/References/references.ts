@@ -6,35 +6,25 @@ interface Reference {
 
 const references: Reference[] = [
   {
-    title: 'Savana – Wikipédia',
-    url: 'https://pt.wikipedia.org/wiki/Savana',
-    description: 'Descrição detalhada sobre o bioma savana, incluindo clima, flora, fauna e distribuição geográfica.'
+    title: 'Oceano – Wikipédia',
+    url: 'https://pt.wikipedia.org/wiki/Oceano',
+    description: 'Descrição geral dos oceanos, incluindo sua definição, extensão (cobrindo cerca de 71% da superfície da Terra), importância ecológica e divisão entre Pacífico, Atlântico, Índico, Glacial Antártico e Glacial Ártico.[2]'
   },
   {
-    title: 'Canguru – Wikipédia',
-    url: 'https://pt.wikipedia.org/wiki/Canguru',
-    description: 'Informações detalhadas sobre o canguru, incluindo características físicas, reprodução e curiosidades.'
+    title: 'Pinguim-imperador – Wikipédia',
+    url: 'https://pt.wikipedia.org/wiki/Pinguim-imperador',
+    description: 'Informações detalhadas sobre o pinguim-imperador: maior espécie de pinguim, características físicas, distribuição, hábitos alimentares, reprodução, adaptações ao frio intenso, ameaças e status de conservação.[12]'
   },
   {
-    title: 'Cangurus: características, espécies, curiosidades - Mundo Educação',
-    url: 'https://mundoeducacao.uol.com.br/biologia/cangurus.htm',
-    description: 'Detalhes sobre anatomia, comportamento, hábitos alimentares e reprodução dos cangurus.'
+    title: 'Pinguim-imperador - Wikiwand',
+    url: 'https://www.wikiwand.com/pt/articles/Pinguim-imperador',
+    description: 'Dados sobre biologia, reprodução, dieta, predadores naturais, comportamento térmico e desafios de conservação do pinguim-imperador.[7][17]'
   },
   {
-    title: 'Canguru: características, habitat, espécies, curiosidades - Biologia Net',
-    url: 'https://www.biologianet.com/biodiversidade/canguru.htm',
-    description: 'Informações sobre tamanho, peso, habitat e curiosidades sobre os cangurus.'
-  },
-  {
-    title: 'Canguru-de-Bennett | Quinta do Seis Dedos',
-    url: 'https://quintaseisdedos.pt/home/case/canguru/',
-    description: 'Descrição detalhada do Canguru-de-Bennett, incluindo comportamento social, características físicas e ciclo de vida.'
-  },
-  {
-    title: 'Canguru-vermelho - Animália Park',
-    url: 'https://animaliapark.com.br/reserva/macropus-rufus/',
-    description: 'Informações sobre o maior canguru, suas características físicas, habilidades de salto e importância ecológica.'
-  },
+    title: 'Projeto Aves: Pinguim-imperador pode ser mais uma vítima do clima',
+    url: 'https://www.pick-upau.org.br/ong/noticias/noticias_2019/2019.11.11_ong-materia-pinguim-imperador/materia-projeto-ave-declinio-pinguim-imperador.htm',
+    description: 'Notícias e pesquisas sobre os riscos enfrentados pelo pinguim-imperador devido às mudanças climáticas e seus impactos nas populações da espécie.[10][20]'
+  }
 ];
 
 export default references
