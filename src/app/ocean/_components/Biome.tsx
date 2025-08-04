@@ -110,8 +110,8 @@ export default function Biome() {
             </h3>
             <p className="text-lg text-blue-100 leading-relaxed mb-6">
               Os oceanos são vastas extensões de água salgada que cobrem mais de
-              70% da superfície terrestre. São divididos em cinco principais:
-              Pacífico, Atlântico, Índico, Ártico e Antártico, cada um com
+              70% da superfície terrestre. São divididos em quatro principais:
+              Pacífico, Atlântico, Índico e Ártico, cada um com
               características únicas.
             </p>
             <p className="text-lg text-blue-100 leading-relaxed">
@@ -195,7 +195,7 @@ export default function Biome() {
 
           <div
             ref={contentRefs[3]}
-            className="bg-blue-800/50 rounded-xl p-6 shadow-lg border border-blue-700/30 opacity-0 transform translate-y-8 hover:shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-300"
+            className="bg-blue-800/50 rounded-xl p-6 shadow-lg border border-blue-700/30 opacity-0 transform translate-y-8 hover:shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-1000"
           >
             <div className="bg-blue-700 p-3 rounded-lg inline-flex mb-4">
               <FaExclamationTriangle className="text-blue-100 text-2xl" />

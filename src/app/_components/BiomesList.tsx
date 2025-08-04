@@ -107,7 +107,7 @@ export default function BiomesList() {
       animal: 'Pinguim',
       icon: '🌊',
       color: 'from-blue-900 to-blue-700',
-      available: false
+      available: true
     }
   ]
 

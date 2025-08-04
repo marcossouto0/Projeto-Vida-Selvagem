@@ -47,7 +47,7 @@ export default function Actions() {
 
   return (
     <div
-      className="bg-gradient-to-b from-blue-100 to-blue-200 py-16 md:py-24"
+      className="bg-gradient-to-b from-blue-950 to-blue-900 py-16 md:py-24"
       ref={sectionRef}
     >
       <div className="container mx-auto px-5 md:px-15 lg:px-30">
@@ -57,12 +57,12 @@ export default function Actions() {
           </div>
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl font-bold mb-6 text-blue-800 opacity-0 transition-opacity duration-1000"
+            className="text-4xl md:text-5xl font-bold mb-6 text-blue-200 opacity-0 transition-opacity duration-1000"
           >
             Nossas Ações
           </h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl md:text-2xl text-blue-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
             Conheça as iniciativas para proteger os oceanos e suas espécies,
             incluindo os pinguins e toda a biodiversidade marinha.
           </p>
